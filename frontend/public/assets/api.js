@@ -15,7 +15,7 @@
 (function (global) {
   'use strict';
 
-  var BASE = (global.PCCA_API_BASE || '/api').replace(/\/$/, '');
+  var BASE = (global.PCCA_API_BASE || 'https://pcca.onrender.com/api').replace(/\/$/, '');
 
   function ApiError(message, code, status, fields) {
     var e = new Error(message);
