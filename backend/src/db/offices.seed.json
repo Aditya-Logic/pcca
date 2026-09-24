@@ -1,0 +1,852 @@
+[
+  {
+    "id": "pao-001",
+    "name": "PR.A.O.",
+    "force": "Principal AO",
+    "location": "New Delhi (HQ)",
+    "srAO": 5,
+    "aao": 6,
+    "acctt": 23,
+    "status": "Active"
+  },
+  {
+    "id": "pao-002",
+    "name": "PAO(SECTT.)",
+    "force": "MHA Secretariat",
+    "location": "New Delhi (HQ)",
+    "srAO": 2,
+    "aao": 7,
+    "acctt": 25,
+    "status": "Active"
+  },
+  {
+    "id": "pao-003",
+    "name": "PAO(P&M)",
+    "force": "Police Modernisation",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 5,
+    "acctt": 13,
+    "status": "Active"
+  },
+  {
+    "id": "pao-004",
+    "name": "PAO, DP(HQ)",
+    "force": "Delegated Powers Cell",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-005",
+    "name": "PAO, DP(I)",
+    "force": "Delegated Powers Cell",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-006",
+    "name": "PAO, DP(II)",
+    "force": "Delegated Powers Cell",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-007",
+    "name": "PAO(CISF)",
+    "force": "CISF",
+    "location": "New Delhi (HQ)",
+    "srAO": 8,
+    "aao": 7,
+    "acctt": 50,
+    "status": "Active"
+  },
+  {
+    "id": "pao-008",
+    "name": "IAW(HQ)",
+    "force": "MHA (General)",
+    "location": "New Delhi (HQ)",
+    "srAO": 15,
+    "aao": 9,
+    "acctt": 16,
+    "status": "Active"
+  },
+  {
+    "id": "pao-009",
+    "name": "PAO(DCPW)",
+    "force": "DCPW",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 4,
+    "acctt": 13,
+    "status": "Active"
+  },
+  {
+    "id": "pao-010",
+    "name": "PAO(ITBP)",
+    "force": "ITBP",
+    "location": "New Delhi (HQ)",
+    "srAO": 8,
+    "aao": 10,
+    "acctt": 47,
+    "status": "Active"
+  },
+  {
+    "id": "pao-011",
+    "name": "PAO(NSG)",
+    "force": "NSG",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 5,
+    "acctt": 10,
+    "status": "Active"
+  },
+  {
+    "id": "pao-012",
+    "name": "PAO(IB)",
+    "force": "IB",
+    "location": "New Delhi (HQ)",
+    "srAO": 7,
+    "aao": 12,
+    "acctt": 51,
+    "status": "Active"
+  },
+  {
+    "id": "pao-013",
+    "name": "PAO(CENSUS)",
+    "force": "Census",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 5,
+    "acctt": 16,
+    "status": "Active"
+  },
+  {
+    "id": "pao-014",
+    "name": "PAO(SSB)",
+    "force": "SSB",
+    "location": "New Delhi (HQ)",
+    "srAO": 6,
+    "aao": 8,
+    "acctt": 34,
+    "status": "Active"
+  },
+  {
+    "id": "pao-015",
+    "name": "PAO(NIA)",
+    "force": "NIA",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-016",
+    "name": "PAO(NDMA)",
+    "force": "NDMA",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-017",
+    "name": "NDRF",
+    "force": "NDRF",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-018",
+    "name": "PAO (NATGRID)",
+    "force": "NATGRID",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-019",
+    "name": "PAD(BSF)",
+    "force": "BSF",
+    "location": "New Delhi (HQ)",
+    "srAO": 20,
+    "aao": 21,
+    "acctt": 117,
+    "status": "Active"
+  },
+  {
+    "id": "pao-020",
+    "name": "PAO(CRPF)",
+    "force": "CRPF",
+    "location": "New Delhi (HQ)",
+    "srAO": 20,
+    "aao": 21,
+    "acctt": 157,
+    "status": "Active"
+  },
+  {
+    "id": "pao-021",
+    "name": "IAP(HQ), CRPF",
+    "force": "CRPF",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 0,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-022",
+    "name": "IAP, CRPF",
+    "force": "CRPF",
+    "location": "New Delhi (HQ)",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-023",
+    "name": "NATGRID (Encadre)",
+    "force": "NATGRID",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-024",
+    "name": "FCRA (Encadre)",
+    "force": "FCRA",
+    "location": "New Delhi (HQ)",
+    "srAO": 6,
+    "aao": 0,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-025",
+    "name": "PAO (AYUSHMAN-1)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-026",
+    "name": "PAO (AYUSHMAN-2)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-027",
+    "name": "PAO (AYUSHMAN-3)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-028",
+    "name": "PAO (AYUSHMAN-4)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-029",
+    "name": "PAO (AYUSHMAN-5)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-030",
+    "name": "PAO (AYUSHMAN-6)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-031",
+    "name": "PAO (AYUSHMAN-7)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-032",
+    "name": "PAO (AYUSHMAN-8)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-033",
+    "name": "PAO (AYUSHMAN-9)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-034",
+    "name": "PAO (AYUSHMAN-10)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-035",
+    "name": "IAP AYUSHMAN",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-036",
+    "name": "RPAO(IB), Shillong",
+    "force": "IB",
+    "location": "Shillong",
+    "srAO": 1,
+    "aao": 4,
+    "acctt": 11,
+    "status": "Active"
+  },
+  {
+    "id": "pao-037",
+    "name": "PAO(AR), Shillong",
+    "force": "Assam Rifles",
+    "location": "Shillong",
+    "srAO": 6,
+    "aao": 16,
+    "acctt": 20,
+    "status": "Active"
+  },
+  {
+    "id": "pao-038",
+    "name": "PAO(BSF), Shillong",
+    "force": "BSF",
+    "location": "Shillong",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-039",
+    "name": "IAP, MHA, Shillong",
+    "force": "MHA",
+    "location": "Shillong",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-040",
+    "name": "IAP, BSF, Shillong",
+    "force": "BSF",
+    "location": "Shillong",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-041",
+    "name": "RPAO(CISF), Kolkata",
+    "force": "CISF",
+    "location": "Kolkata",
+    "srAO": 2,
+    "aao": 9,
+    "acctt": 22,
+    "status": "Active"
+  },
+  {
+    "id": "pao-042",
+    "name": "PAO(CRPF), Kolkata",
+    "force": "CRPF",
+    "location": "Kolkata",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 10,
+    "status": "Active"
+  },
+  {
+    "id": "pao-043",
+    "name": "PAO(NSG), Kolkata",
+    "force": "NSG",
+    "location": "Kolkata",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-044",
+    "name": "IAP, BSF, Kolkata",
+    "force": "BSF",
+    "location": "Kolkata",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-045",
+    "name": "IAP, MHA, Kolkata",
+    "force": "MHA",
+    "location": "Kolkata",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-046",
+    "name": "ZPAO(SSB), Patna",
+    "force": "SSB",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 12,
+    "status": "Active"
+  },
+  {
+    "id": "pao-047",
+    "name": "IAP, MHA, Patna",
+    "force": "MHA",
+    "location": "Patna",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-048",
+    "name": "RPAO(CRPF), Patna",
+    "force": "CRPF",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 12,
+    "status": "Active"
+  },
+  {
+    "id": "pao-049",
+    "name": "IAP, CRPF, Patna",
+    "force": "CRPF",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-050",
+    "name": "RPAO(ITBP), Patna",
+    "force": "ITBP",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-051",
+    "name": "RPAO(CISF), Ranchi",
+    "force": "CISF",
+    "location": "Ranchi",
+    "srAO": 1,
+    "aao": 8,
+    "acctt": 15,
+    "status": "Active"
+  },
+  {
+    "id": "pao-052",
+    "name": "IAP, MHA, Ranchi",
+    "force": "MHA",
+    "location": "Ranchi",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-053",
+    "name": "PAO(CRPF), Raipur",
+    "force": "CRPF",
+    "location": "Raipur",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 9,
+    "status": "Active"
+  },
+  {
+    "id": "pao-054",
+    "name": "ZPAO(SSB), Lucknow",
+    "force": "SSB",
+    "location": "Lucknow",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 12,
+    "status": "Active"
+  },
+  {
+    "id": "pao-055",
+    "name": "IAP, CRPF, Lucknow",
+    "force": "CRPF",
+    "location": "Lucknow",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-056",
+    "name": "PAO(ITBP), Dehradun",
+    "force": "ITBP",
+    "location": "Dehradun",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-057",
+    "name": "PAO(CRPF), Jammu",
+    "force": "CRPF",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 7,
+    "status": "Active"
+  },
+  {
+    "id": "pao-058",
+    "name": "PAO(BSF), Jammu",
+    "force": "BSF",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-059",
+    "name": "IAP, BSF, Jammu",
+    "force": "BSF",
+    "location": "Jammu",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-060",
+    "name": "PAO(CRPF), Hyderabad",
+    "force": "CRPF",
+    "location": "Hyderabad",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 10,
+    "status": "Active"
+  },
+  {
+    "id": "pao-061",
+    "name": "PAO(NSG), Hyderabad",
+    "force": "NSG",
+    "location": "Hyderabad",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-062",
+    "name": "RPAO(CISF), Chennai",
+    "force": "CISF",
+    "location": "Chennai",
+    "srAO": 3,
+    "aao": 5,
+    "acctt": 15,
+    "status": "Active"
+  },
+  {
+    "id": "pao-063",
+    "name": "IAP, MHA, Chennai",
+    "force": "MHA",
+    "location": "Chennai",
+    "srAO": 2,
+    "aao": 0,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-064",
+    "name": "IAP, CRPF, Chennai",
+    "force": "CRPF",
+    "location": "Chennai",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-065",
+    "name": "ZPAO(SSB), Guwahati",
+    "force": "SSB",
+    "location": "Guwahati",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-066",
+    "name": "IAP, CRPF, Guwahati",
+    "force": "CRPF",
+    "location": "Guwahati",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-067",
+    "name": "RPAO(ITBP), Guwahati",
+    "force": "ITBP",
+    "location": "Guwahati",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-068",
+    "name": "RPAO(CISF), Mumbai",
+    "force": "CISF",
+    "location": "Mumbai",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 9,
+    "status": "Active"
+  },
+  {
+    "id": "pao-069",
+    "name": "IAP, BSF, Srinagar",
+    "force": "BSF",
+    "location": "Srinagar",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-070",
+    "name": "IAP, BSF, Jodhpur",
+    "force": "BSF",
+    "location": "Jodhpur",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-071",
+    "name": "IAP, BSF, Jalandhar",
+    "force": "BSF",
+    "location": "Jalandhar",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-072",
+    "name": "IAP, BSF, Siliguri",
+    "force": "BSF",
+    "location": "Siliguri",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-073",
+    "name": "IAP, BSF, Agartala (Tripura) PAD Cadre",
+    "force": "BSF",
+    "location": "Agartala",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-074",
+    "name": "IAP, BSF, Gandhinagar (Gujarat)",
+    "force": "BSF",
+    "location": "Gandhinagar",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-075",
+    "name": "IAP, CRPF, Ajmer",
+    "force": "CRPF",
+    "location": "Ajmer",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-076",
+    "name": "IAP, CRPF, Allahabad",
+    "force": "CRPF",
+    "location": "Allahabad",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-077",
+    "name": "IAP, CRPF, Chandigarh",
+    "force": "CRPF",
+    "location": "Chandigarh",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-078",
+    "name": "RPAO(CRPF), Bangaluru",
+    "force": "CRPF",
+    "location": "Bangaluru",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-079",
+    "name": "ZPAO(SSB), Ranidanga",
+    "force": "SSB",
+    "location": "Ranidanga",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-080",
+    "name": "ZPAO(SSB), Kathgodam",
+    "force": "SSB",
+    "location": "Kathgodam",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-081",
+    "name": "PAO (J&K Home Deptt.), Jammu",
+    "force": "J&K Home Deptt.",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-082",
+    "name": "PAO (J&K Home Deptt.), Srinagar-1",
+    "force": "Assam Rifles",
+    "location": "Srinagar",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-083",
+    "name": "PAO (J&K Home Deptt.), Srinagar-2",
+    "force": "Assam Rifles",
+    "location": "Srinagar",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-084",
+    "name": "IAP (J&K Home Deptt), Jammu",
+    "force": "J&K Home Deptt.",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-085",
+    "name": "IAP (J&K Home Deptt.), Srinagar",
+    "force": "Assam Rifles",
+    "location": "Srinagar",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  }
+]

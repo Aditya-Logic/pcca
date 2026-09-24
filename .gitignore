@@ -1,0 +1,25 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Uploads and runtime data
+backend/uploads/
+*.log
+logs/
+
+# Build output
+dist/
+build/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

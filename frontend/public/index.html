@@ -1,0 +1,2802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCCA | MHA Pay &amp; Accounts Offices Portal — pcca.mha.gov.in</title>
+<meta name="description" content="Principal Chief Controller of Accounts, Ministry of Home Affairs. Directory, staff strength and document repository for 85 Pay &amp; Accounts Offices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PCCA — MHA Pay & Accounts Offices Portal
+   Design tokens
+   ============================================================ */
+
+:root {
+  /* Color */
+  --navy-900: #0a2647;
+  --navy-800: #10345c;
+  --navy-700: #17426f;
+  --brass-600: #b1791f;
+  --brass-500: #c8892a;
+  --paper: #f3f5f8;
+  --panel: #ffffff;
+  --ink: #16202a;
+  --slate: #55636f;
+  --slate-light: #8894a0;
+  --line: #dbe1e7;
+  --line-soft: #eaeef2;
+  --success: #1e7145;
+  --success-bg: #e7f3ec;
+  --alert: #a32423;
+  --alert-bg: #fbeaea;
+
+  /* Force tag colors — each parent force gets a quiet identity */
+  --force-crpf: #8a3324;
+  --force-bsf: #1e5a8a;
+  --force-cisf: #4a5d23;
+  --force-itbp: #6b3fa0;
+  --force-ssb: #a35d00;
+  --force-nsg: #1c1c1c;
+  --force-ib: #0a2647;
+  --force-other: #55636f;
+
+  /* Type */
+  --font-head: "Source Serif 4", "Noto Serif", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Noto Sans", -apple-system, sans-serif;
+
+  /* Layout */
+  --max-w: 1240px;
+  --radius: 3px;
+  --shadow-sm: 0 1px 2px rgba(10, 38, 71, 0.08);
+  --shadow-md: 0 4px 16px rgba(10, 38, 71, 0.1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--navy-900);
+  margin: 0 0 0.4em;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(1.9rem, 3.2vw, 2.7rem); font-weight: 600; }
+h2 { font-size: clamp(1.4rem, 2vw, 1.9rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; color: var(--slate); max-width: 62ch; }
+
+a { color: var(--navy-700); }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-600);
+  outline-offset: 2px;
+}
+
+/* ---------------- Header / Nav ---------------- */
+
+.site-header {
+  background: var(--navy-900);
+  border-bottom: 3px solid var(--brass-600);
+}
+
+.gov-strip {
+  background: #071a30;
+  color: #b9c6d4;
+  font-size: 0.78rem;
+  padding: 5px 0;
+}
+.gov-strip .container { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.gov-strip a { color: #d8e2ec; text-decoration: none; }
+.gov-strip a:hover { text-decoration: underline; }
+.lang-toggle { display: flex; gap: 6px; }
+.lang-toggle button {
+  background: none; border: 1px solid #2c4a68; color: #cdd9e4;
+  padding: 1px 8px; border-radius: 2px; font-size: 0.75rem; cursor: pointer;
+}
+.lang-toggle button.active { background: var(--brass-600); border-color: var(--brass-600); color: #fff; }
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--brass-600);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--brass-500);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.brand-text .brand-name {
+  font-family: var(--font-head);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.brand-text .brand-sub {
+  color: #9fb3c8;
+  font-size: 0.76rem;
+  margin-top: 1px;
+}
+
+.main-nav { display: flex; gap: 28px; align-items: center; }
+.main-nav a {
+  color: #d7e1ea;
+  text-decoration: none;
+  font-size: 0.93rem;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+.main-nav a:hover, .main-nav a.current { border-bottom-color: var(--brass-600); color: #fff; }
+
+.nav-cta {
+  background: var(--brass-600);
+  color: #fff !important;
+  padding: 8px 18px !important;
+  border-radius: 2px;
+  border-bottom: none !important;
+}
+.nav-cta:hover { background: var(--brass-500); }
+
+.nav-toggle { display: none; }
+
+/* ---------------- Hero ---------------- */
+
+.hero {
+  background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
+  color: #fff;
+  padding: 56px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -120px; top: -120px;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 137, 42, 0.18);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  right: -40px; top: -40px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 137, 42, 0.14);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  color: #c8892a;
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+.hero h1 { color: #fff; max-width: 15ch; }
+
+.hero-lede { color: #c3d1de; max-width: 46ch; font-size: 1.05rem; }
+
+.hero-actions { display: flex; gap: 14px; margin-top: 22px; }
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 2px;
+  font-size: 0.94rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+}
+.btn-primary { background: var(--brass-600); color: #fff; }
+.btn-primary:hover { background: var(--brass-500); }
+.btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+.btn-ghost:hover { border-color: #fff; }
+.btn-outline { background: transparent; color: var(--navy-800); border-color: var(--line); }
+.btn-outline:hover { border-color: var(--navy-700); }
+
+/* Seal / stat badge */
+.seal {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 6px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px 24px;
+}
+.seal-badge {
+  grid-row: span 2;
+  width: 108px; height: 108px;
+  border-radius: 50%;
+  border: 2px solid var(--brass-600);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--font-head);
+}
+.seal-badge .num { font-size: 2rem; font-weight: 700; color: #fff; line-height: 1; }
+.seal-badge .lbl { font-size: 0.66rem; color: #b9c6d4; margin-top: 4px; text-align: center; }
+
+.seal-stat { align-self: center; }
+.seal-stat .num { font-family: var(--font-head); font-size: 1.5rem; color: #fff; font-weight: 600; }
+.seal-stat .lbl { font-size: 0.78rem; color: #9fb3c8; margin-top: 2px; }
+
+/* ---------------- Sections ---------------- */
+
+.section { padding: 56px 0; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+.section-head p { margin: 6px 0 0; }
+
+.summary-band {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass-600);
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: -46px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+}
+.summary-band .cell {
+  padding: 22px 24px;
+  border-right: 1px solid var(--line-soft);
+}
+.summary-band .cell:last-child { border-right: none; }
+.summary-band .cell .num {
+  font-family: var(--font-head);
+  font-size: 1.9rem;
+  color: var(--navy-900);
+  font-weight: 600;
+}
+.summary-band .cell .lbl { color: var(--slate); font-size: 0.85rem; margin-top: 2px; }
+
+/* ---------------- Filters / Toolbar ---------------- */
+
+.toolbar {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.toolbar input[type="search"],
+.toolbar select {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 9px 12px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: #fff;
+}
+.toolbar input[type="search"] { flex: 1 1 240px; min-width: 180px; }
+.toolbar select { flex: 0 0 auto; }
+
+.toolbar .spacer { flex: 1; }
+.toolbar .count { font-size: 0.85rem; color: var(--slate); white-space: nowrap; }
+
+/* ---------------- Office cards ---------------- */
+
+.office-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+  gap: 16px;
+}
+
+.office-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--slate-light);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.office-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+.office-card.force-CRPF { border-left-color: var(--force-crpf); }
+.office-card.force-BSF { border-left-color: var(--force-bsf); }
+.office-card.force-CISF { border-left-color: var(--force-cisf); }
+.office-card.force-ITBP { border-left-color: var(--force-itbp); }
+.office-card.force-SSB { border-left-color: var(--force-ssb); }
+.office-card.force-NSG { border-left-color: var(--force-nsg); }
+.office-card.force-IB { border-left-color: var(--force-ib); }
+
+.office-card .top-row {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
+  margin-bottom: 6px;
+}
+.office-card h3 { margin: 0; font-size: 1rem; color: var(--navy-900); }
+.office-card .force-tag {
+  font-size: 0.68rem;
+  color: var(--slate);
+  background: var(--line-soft);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.office-card .location { color: var(--slate); font-size: 0.83rem; margin-bottom: 12px; }
+
+.stat-trio {
+  display: flex;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 10px;
+}
+.stat-trio .stat { flex: 1; text-align: left; }
+.stat-trio .stat + .stat { border-left: 1px solid var(--line-soft); padding-left: 10px; margin-left: 10px; }
+.stat-trio .stat .n { font-family: var(--font-head); font-size: 1.15rem; color: var(--navy-900); font-weight: 600; }
+.stat-trio .stat .l { font-size: 0.66rem; color: var(--slate-light); }
+
+.status-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--success-bg);
+  color: var(--success);
+  margin-top: 10px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--slate);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+/* ---------------- Footer ---------------- */
+
+.site-footer {
+  background: var(--navy-900);
+  color: #b9c6d4;
+  margin-top: 60px;
+  padding: 40px 0 22px;
+  font-size: 0.86rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.footer-grid h4 { color: #fff; font-size: 0.85rem; font-family: var(--font-body); font-weight: 600; margin-bottom: 10px; }
+.footer-grid a { color: #9fb3c8; text-decoration: none; display: block; margin-bottom: 6px; }
+.footer-grid a:hover { color: #fff; }
+.footer-bottom { padding-top: 18px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: #7c8fa2; }
+
+/* ---------------- Auth page ---------------- */
+
+.auth-wrap {
+  min-height: calc(100vh - 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: var(--paper);
+}
+.auth-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--brass-600);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 400px;
+  padding: 34px 32px;
+  box-shadow: var(--shadow-md);
+}
+.auth-card .brand-mark { margin: 0 auto 16px; color: var(--brass-600); border-color: var(--brass-600); }
+.auth-card h1 { font-size: 1.4rem; text-align: center; }
+.auth-card .sub { text-align: center; color: var(--slate); font-size: 0.88rem; margin-bottom: 22px; }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 0.85rem; color: var(--ink); margin-bottom: 6px; font-weight: 500; }
+.field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+.field input:focus { border-color: var(--navy-700); }
+
+.field-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.83rem; margin-bottom: 18px; }
+.field-row a { color: var(--navy-700); text-decoration: none; }
+.field-row a:hover { text-decoration: underline; }
+
+.captcha-box {
+  border: 1px dashed var(--line);
+  border-radius: 2px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background: var(--paper);
+  font-family: var(--font-head);
+  letter-spacing: 4px;
+  color: var(--slate);
+}
+
+.btn-block { width: 100%; text-align: center; }
+
+.auth-foot { text-align: center; margin-top: 18px; font-size: 0.85rem; color: var(--slate); }
+
+
+/* ---------------- Dashboard shell ---------------- */
+
+.dash-shell { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 200px); }
+
+.dash-side {
+  background: var(--navy-900);
+  color: #cdd9e4;
+  padding: 24px 0;
+}
+.dash-side .role-badge {
+  margin: 0 20px 22px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  font-size: 0.78rem;
+}
+.dash-side .role-badge strong { display: block; color: #fff; font-size: 0.92rem; margin-bottom: 2px; }
+.dash-side nav a {
+  display: block;
+  padding: 10px 20px;
+  color: #b9c6d4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+}
+.dash-side nav a:hover { background: rgba(255,255,255,0.04); }
+.dash-side nav a.active { border-left-color: var(--brass-600); color: #fff; background: rgba(255,255,255,0.05); }
+
+.dash-main { padding: 30px 34px; background: var(--paper); }
+.dash-topline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 14px; }
+.dash-topline h1 { margin: 0; font-size: 1.5rem; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 26px; }
+.kpi {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.kpi .num { font-family: var(--font-head); font-size: 1.6rem; color: var(--navy-900); font-weight: 600; }
+.kpi .lbl { color: var(--slate); font-size: 0.82rem; margin-top: 2px; }
+.kpi .delta { font-size: 0.72rem; color: var(--success); margin-top: 4px; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+.panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.panel-head h2 { font-size: 1.05rem; margin: 0; }
+
+.data-list { list-style: none; margin: 0; padding: 0; }
+.data-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--line-soft); font-size: 0.9rem;
+}
+.data-list li:last-child { border-bottom: none; }
+.data-list .meta { color: var(--slate-light); font-size: 0.78rem; }
+
+/* ---------------- Office detail ---------------- */
+
+.detail-hero {
+  background: var(--navy-900);
+  color: #fff;
+  padding: 34px 0;
+}
+.detail-hero .breadcrumb { font-size: 0.82rem; color: #9fb3c8; margin-bottom: 10px; }
+.detail-hero .breadcrumb a { color: #9fb3c8; text-decoration: none; }
+.detail-hero .breadcrumb a:hover { color: #fff; }
+.detail-hero h1 { color: #fff; margin-bottom: 6px; }
+.detail-tags { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.detail-tags span {
+  font-size: 0.78rem; padding: 4px 12px; border-radius: 20px;
+  background: rgba(255,255,255,0.08); color: #d7e1ea;
+}
+
+.detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-top: -20px; position: relative; z-index: 2; }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+.tabs button {
+  background: none; border: none; padding: 10px 16px; font-size: 0.88rem; color: var(--slate);
+  cursor: pointer; border-bottom: 2px solid transparent; font-family: var(--font-body);
+}
+.tabs button.active { color: var(--navy-900); border-bottom-color: var(--brass-600); font-weight: 600; }
+
+.doc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--line-soft);
+}
+.doc-row:last-child { border-bottom: none; }
+.doc-name { font-size: 0.92rem; color: var(--ink); }
+.doc-meta { font-size: 0.76rem; color: var(--slate-light); margin-top: 2px; }
+.doc-dl { font-size: 0.82rem; color: var(--navy-700); text-decoration: none; white-space: nowrap; }
+.doc-dl:hover { text-decoration: underline; }
+
+.info-list { list-style: none; margin: 0; padding: 0; }
+.info-list li { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--line-soft); font-size: 0.88rem; }
+.info-list li:last-child { border-bottom: none; }
+.info-list .k { color: var(--slate); }
+.info-list .v { color: var(--ink); font-weight: 500; text-align: right; }
+
+
+/* ---------------- Dashboard refinements / reporting modules ---------------- */
+.kpi.clickable { cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.kpi.clickable:hover, .kpi.clickable:focus-within { border-color: var(--brass-600); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.kpi.clickable button { width:100%; text-align:left; border:0; background:transparent; padding:0; cursor:pointer; font:inherit; color:inherit; }
+.kpi .hint { display:block; margin-top:7px; font-size:.72rem; color:var(--slate-light); }
+.dashboard-intro { background:#fff; border:1px solid var(--line); border-left:3px solid var(--brass-600); padding:14px 16px; margin-bottom:20px; }
+.dashboard-intro p { margin:0; font-size:.88rem; }
+.report-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
+.report-stat { background:#fff; border:1px solid var(--line); padding:15px 16px; }
+.report-stat .num { font-family:var(--font-head); font-size:1.45rem; color:var(--navy-900); }
+.report-stat .lbl { color:var(--slate); font-size:.8rem; margin-top:3px; }
+.report-stat .sub { color:var(--slate-light); font-size:.72rem; margin-top:4px; }
+ .table-wrap { overflow:auto; border:1px solid var(--line); }
+.table-wrap.scroll-table { max-height:430px; overflow:auto; }
+.back-btn { border:1px solid var(--line); background:#fff; color:var(--navy-800); border-radius:2px; padding:7px 11px; font:inherit; font-size:.82rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+.back-btn:hover { border-color:var(--brass-600); color:var(--navy-900); background:#fffaf2; }
+.strength-by-org { display:flex; flex-direction:column; }
+.strength-org-row { display:grid; grid-template-columns:minmax(150px,1.25fr) repeat(3,minmax(105px,.75fr)) minmax(95px,.65fr); gap:10px; align-items:center; padding:13px 14px; border-bottom:1px solid var(--line-soft); }
+.strength-org-row:last-child { border-bottom:0; }
+.strength-org-row:hover { background:#fbfcfd; }
+.strength-org-name { font-weight:600; color:var(--navy-900); }
+.strength-org-meta { font-size:.72rem; color:var(--slate-light); margin-top:2px; }
+.strength-metric { border-left:1px solid var(--line-soft); padding-left:12px; }
+.strength-metric .n { font-family:var(--font-head); font-weight:600; color:var(--navy-900); font-size:1.05rem; }
+.strength-metric .l { color:var(--slate); font-size:.72rem; margin-top:1px; }
+.strength-total { border-left:1px solid var(--line); padding-left:14px; }
+.strength-total .n { font-family:var(--font-head); font-weight:700; color:var(--brass-600); font-size:1.15rem; }
+.strength-total .l { color:var(--slate); font-size:.72rem; }
+.strength-org-head { background:var(--paper); font-size:.72rem; color:var(--slate); font-weight:600; }
+.strength-org-head .strength-metric .l, .strength-org-head .strength-total .l { color:var(--slate); }
+@media (max-width:760px) {
+  .strength-org-row { grid-template-columns:1.2fr repeat(3,80px) 80px; overflow-x:auto; }
+}
+
+.report-table { width:100%; border-collapse:collapse; min-width:760px; font-size:.82rem; }
+.report-table th, .report-table td { padding:10px 11px; border-bottom:1px solid var(--line-soft); text-align:left; vertical-align:top; }
+.report-table th { background:var(--paper); color:var(--slate); font-size:.73rem; font-weight:600; position:sticky; top:0; z-index:1; }
+.report-table td.num { text-align:right; font-family:var(--font-head); font-weight:600; color:var(--navy-900); }
+.report-table tr:hover td { background:#fbfcfd; }
+.report-table .reason { min-width:260px; color:var(--slate); }
+.report-toolbar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:14px; }
+.report-toolbar input, .report-toolbar select { border:1px solid var(--line); border-radius:2px; padding:9px 10px; font:inherit; background:#fff; min-width:180px; }
+.report-toolbar .grow { flex:1; }
+.module-actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.upload-card { background:#fff; border:1px solid var(--line); padding:18px; }
+.upload-card .upload-title { font-family:var(--font-head); color:var(--navy-900); font-size:1.08rem; margin-bottom:4px; }
+.upload-card .upload-sub { color:var(--slate); font-size:.82rem; margin-bottom:14px; }
+.upload-form { display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr; gap:12px; align-items:end; }
+.upload-form .field { margin:0; }
+.upload-form input, .upload-form select { width:100%; border:1px solid var(--line); border-radius:2px; padding:9px 10px; font:inherit; background:#fff; }
+.empty-report { padding:26px 18px; text-align:center; color:var(--slate); background:var(--paper); border:1px dashed var(--line); }
+.empty-report strong { display:block; color:var(--navy-900); font-family:var(--font-head); font-size:1.02rem; margin-bottom:4px; }
+.role-map { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.role-card { border:1px solid var(--line); padding:16px; background:#fff; }
+.role-card h3 { margin-bottom:6px; }
+.role-card p { font-size:.82rem; margin:0; }
+.access-pill { display:inline-flex; align-items:center; gap:5px; font-size:.72rem; padding:3px 9px; border-radius:20px; background:#eef1f5; color:var(--slate); }
+.access-pill.central { background:var(--success-bg); color:var(--success); }
+.admin-filter { display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+.admin-filter input { flex:1; min-width:220px; border:1px solid var(--line); padding:9px 11px; border-radius:2px; font:inherit; }
+.clickable-link { color:var(--navy-700); text-decoration:none; font-weight:500; }
+.clickable-link:hover { text-decoration:underline; }
+.modal-backdrop { position:fixed; inset:0; background:rgba(7,26,48,.48); display:none; align-items:center; justify-content:center; padding:20px; z-index:90; }
+.modal-backdrop.open { display:flex; }
+.modal { width:min(980px,100%); max-height:88vh; overflow:auto; background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-md); }
+.modal-head { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:17px 20px; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff; z-index:2; }
+.modal-head h2 { margin:0; font-size:1.15rem; }
+.modal-close { border:1px solid var(--line); background:#fff; color:var(--slate); border-radius:2px; padding:5px 10px; cursor:pointer; }
+.modal-body { padding:20px; }
+.detail-table { width:100%; border-collapse:collapse; font-size:.82rem; }
+.detail-table th, .detail-table td { padding:8px 9px; border-bottom:1px solid var(--line-soft); text-align:left; }
+.detail-table th { color:var(--slate); background:var(--paper); }
+@media (max-width:900px) {
+  .report-grid { grid-template-columns:repeat(2,1fr); }
+  .upload-form { grid-template-columns:1fr 1fr; }
+  .role-map { grid-template-columns:1fr; }
+}
+@media (max-width:560px) {
+  .report-grid { grid-template-columns:1fr 1fr; }
+  .upload-form { grid-template-columns:1fr; }
+  .report-toolbar input, .report-toolbar select { min-width:100%; }
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .summary-band { grid-template-columns: repeat(2, 1fr); }
+  .summary-band .cell:nth-child(2) { border-right: none; }
+  .dash-shell { grid-template-columns: 1fr; }
+  .dash-side { display: flex; overflow-x: auto; padding: 12px 0; }
+  .dash-side .role-badge { display: none; }
+  .dash-side nav { display: flex; }
+  .dash-side nav a { white-space: nowrap; border-left: none; border-bottom: 3px solid transparent; }
+  .dash-side nav a.active { border-bottom-color: var(--brass-600); border-left: none; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .main-nav { display: none; }
+  .nav-toggle {
+    display: inline-flex; background: none; border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; padding: 6px 10px; border-radius: 2px; cursor: pointer;
+  }
+  .main-nav.open {
+    display: flex; flex-direction: column; position: absolute; left: 0; right: 0; top: 100%;
+    background: var(--navy-800); padding: 14px 28px; gap: 4px; z-index: 20;
+  }
+}
+
+@media (max-width: 560px) {
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---- view routing ---- */
+.view { display: none; }
+.view.active { display: block; }
+
+/* skip link */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; background: var(--brass-600);
+  color: #fff; padding: 10px 16px; z-index: 100; text-decoration: none;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* table view toggle */
+.view-switch { display: flex; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.view-switch button {
+  background: #fff; border: none; padding: 8px 14px; font-size: 0.85rem;
+  color: var(--slate); cursor: pointer; font-family: var(--font-body);
+}
+.view-switch button.active { background: var(--navy-900); color: #fff; }
+
+.office-list { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.office-row {
+  display: grid; grid-template-columns: 2.4fr 1.1fr 1.1fr 60px 60px 60px;
+  gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--line-soft);
+  align-items: center; font-size: 0.88rem; cursor: pointer; text-decoration: none; color: inherit;
+}
+.office-row:last-child { border-bottom: none; }
+.office-row:hover { background: var(--paper); }
+.office-row.head {
+  font-weight: 600; color: var(--slate); font-size: 0.76rem;
+  background: var(--paper); cursor: default; position: sticky; top: 0; z-index: 2;
+}
+.office-row.head:hover { background: var(--paper); }
+.office-row .rname { font-weight: 500; color: var(--navy-900); }
+.office-row .rnum { text-align: right; font-family: var(--font-head); font-weight: 600; }
+.office-row .sortable { cursor: pointer; user-select: none; }
+.office-row .sortable:hover { color: var(--navy-900); }
+
+@media (max-width: 760px) {
+  .office-row { grid-template-columns: 1.6fr 50px 50px 50px; }
+  .office-row .rloc, .office-row .rforce { display: none; }
+}
+
+
+/* upload zone */
+.dropzone {
+  border: 2px dashed var(--line); border-radius: var(--radius); padding: 38px 22px;
+  text-align: center; background: var(--paper); cursor: pointer;
+}
+.dropzone:hover, .dropzone.drag { border-color: var(--brass-600); background: #fffaf2; }
+.dropzone .dz-title { font-family: var(--font-head); font-size: 1.05rem; color: var(--navy-900); margin-bottom: 4px; }
+.dropzone .dz-sub { font-size: 0.83rem; color: var(--slate); }
+
+.upload-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
+.upload-item:last-child { border-bottom: none; }
+.up-name { flex: 1; font-size: 0.88rem; }
+.up-bar { width: 120px; height: 5px; background: var(--line-soft); border-radius: 3px; overflow: hidden; }
+.up-bar i { display: block; height: 100%; background: var(--success); width: 0; }
+
+.badge { font-size: 0.7rem; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
+.badge.pub { background: var(--success-bg); color: var(--success); }
+.badge.int { background: #fff4e0; color: #8a5a00; }
+.badge.res { background: var(--alert-bg); color: var(--alert); }
+.badge.pend { background: #eef1f5; color: var(--slate); }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid .field { margin-bottom: 0; }
+.form-grid select, .form-grid input {
+  width: 100%; border: 1px solid var(--line); border-radius: 2px;
+  padding: 9px 11px; font-family: var(--font-body); font-size: 0.9rem;
+}
+@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+
+.toast {
+  position: fixed; bottom: 24px; right: 24px; background: var(--navy-900); color: #fff;
+  padding: 13px 20px; border-radius: 3px; font-size: 0.88rem; box-shadow: var(--shadow-md);
+  opacity: 0; transform: translateY(10px); transition: all .2s; z-index: 99; pointer-events: none;
+  border-left: 3px solid var(--brass-600);
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+.note-bar {
+  background: #fff8e8; border: 1px solid #e8d5a8; border-left: 3px solid var(--brass-600);
+  padding: 12px 16px; border-radius: 2px; font-size: 0.85rem; color: #6b5316; margin-bottom: 20px;
+}
+.note-bar strong { color: #4a3a0f; }
+
+.audit-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-soft); font-size: 0.85rem; }
+.audit-row:last-child { border-bottom: none; }
+.audit-row .ts { color: var(--slate-light); font-size: 0.76rem; white-space: nowrap; min-width: 110px; }
+
+.comment { padding: 14px 0; border-bottom: 1px solid var(--line-soft); }
+.comment:last-child { border-bottom: none; }
+.comment .cm-head { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--slate-light); margin-bottom: 5px; }
+.comment .cm-body { font-size: 0.9rem; color: var(--ink); }
+
+textarea {
+  width: 100%; border: 1px solid var(--line); border-radius: 2px; padding: 10px 12px;
+  font-family: var(--font-body); font-size: 0.92rem; resize: vertical; min-height: 84px;
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="gov-strip">
+    <div class="container">
+      <span>भारत सरकार · गृह मंत्रालय — Government of India · Ministry of Home Affairs</span>
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('en',this)">English</button>
+        <button onclick="setLang('hi',this)">हिन्दी</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="nav-row" style="position:relative">
+      <a class="brand" href="#" onclick="go('home');return false;">
+        <span class="brand-mark">PCCA</span>
+        <span class="brand-text">
+          <span class="brand-name">Principal Chief Controller of Accounts</span>
+          <span class="brand-sub">pcca.mha.gov.in · Ministry of Home Affairs</span>
+        </span>
+      </a>
+      <button class="nav-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="#" data-nav="home" onclick="go('home');return false;">Home</a>
+        <a href="#" data-nav="directory" onclick="go('directory');return false;">Office directory</a>
+        <a href="#" data-nav="dashboard" onclick="go('dashboard');return false;">Dashboard</a>
+        <a href="#" class="nav-cta" onclick="go('login');return false;">Sign in</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HOME ================= -->
+<section class="view active" id="view-home">
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">Principal Chief Controller of Accounts</div>
+          <h1>One record for every accounts office under the Ministry.</h1>
+          <p class="hero-lede">Sanctioned strength, office contacts and circulars for all 85 Pay &amp; Accounts, Regional PAO, Zonal PAO and Internal Audit offices — maintained by each office, open to the public.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#" onclick="go('directory');return false;">Browse the directory</a>
+            <a class="btn btn-ghost" href="#" onclick="go('login');return false;">Office sign-in</a>
+          </div>
+        </div>
+        <div class="seal">
+          <div class="seal-badge">
+            <span class="num" id="heroOffices">85</span>
+            <span class="lbl">accounts<br>offices</span>
+          </div>
+          <div class="seal-stat">
+            <div class="num" id="heroSrAO">196</div>
+            <div class="lbl">Senior Accounts Officers</div>
+          </div>
+          <div class="seal-stat">
+            <div class="num" id="heroAAO">253</div>
+            <div class="lbl">Assistant Accounts Officers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="summary-band">
+      <div class="cell"><div class="num" id="s1">85</div><div class="lbl">Offices on record</div></div>
+      <div class="cell"><div class="num" id="s2">196</div><div class="lbl">Sr. Accounts Officers</div></div>
+      <div class="cell"><div class="num" id="s3">253</div><div class="lbl">Assistant Accounts Officers</div></div>
+      <div class="cell"><div class="num" id="s4">912</div><div class="lbl">Sr. Accountants / Accountants</div></div>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div class="section-head">
+      <div>
+        <h2>Sanctioned strength by organisation</h2>
+        <p>Each row shows the number of sanctioned Sr. AOs, AAOs and Accountants. The last column is the total for that organisation.</p>
+      </div>
+      <a class="btn btn-outline" href="#" onclick="go('directory');return false;">See all offices</a>
+    </div>
+    <div class="panel" id="forceChart"></div>
+  </div>
+
+  <div class="container section" style="padding-top:0">
+    <div class="section-head">
+      <div>
+        <h2>What you can do here</h2>
+      </div>
+    </div>
+    <div class="office-grid">
+      <div class="office-card" style="border-left-color:var(--brass-600)">
+        <h3>Find an office</h3>
+        <p style="font-size:.88rem;margin:8px 0 0">Search 85 offices by name, parent organisation or station. No sign-in needed.</p>
+      </div>
+      <div class="office-card" style="border-left-color:var(--brass-600)">
+        <h3>Download circulars</h3>
+        <p style="font-size:.88rem;margin:8px 0 0">Every office publishes its own orders and circulars. Public files are open to all.</p>
+      </div>
+      <div class="office-card" style="border-left-color:var(--brass-600)">
+        <h3>Raise a query</h3>
+        <p style="font-size:.88rem;margin:8px 0 0">Comment on any published document. Queries go to the issuing office for reply.</p>
+      </div>
+      <div class="office-card" style="border-left-color:var(--brass-600)">
+        <h3>Publish as an office</h3>
+        <p style="font-size:.88rem;margin:8px 0 0">PAO administrators sign in to upload files and keep their office record current.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIRECTORY ================= -->
+<section class="view" id="view-directory">
+  <div class="container section">
+    <div style="margin-bottom:12px"><button class="back-btn" onclick="goBack()">← Back</button></div>
+    <div class="section-head">
+      <div>
+        <h2>Office directory</h2>
+        <p>All Pay &amp; Accounts, Regional, Zonal and Internal Audit offices under the Ministry.</p>
+      </div>
+      <div class="view-switch">
+        <button id="btnCards" class="active" onclick="setLayout('cards')">Cards</button>
+        <button id="btnList" onclick="setLayout('list')">List</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search by office name…" oninput="render()" aria-label="Search offices">
+      <select id="fForce" onchange="render()" aria-label="Filter by organisation"><option value="">All organisations</option></select>
+      <select id="fLoc" onchange="render()" aria-label="Filter by station"><option value="">All stations</option></select>
+      <select id="fSort" onchange="render()" aria-label="Sort">
+        <option value="name">Sort: office name</option>
+        <option value="srAO">Sort: Sr. AOs (high–low)</option>
+        <option value="aao">Sort: AAOs (high–low)</option>
+        <option value="acctt">Sort: Accountants (high–low)</option>
+        <option value="total">Sort: total strength</option>
+      </select>
+      <span class="spacer"></span>
+      <span class="count" id="resultCount"></span>
+      <button class="btn btn-outline" onclick="exportCSV()">Export CSV</button>
+    </div>
+
+    <div id="grid" class="office-grid"></div>
+    <div id="list" class="office-list" style="display:none"></div>
+  </div>
+</section>
+
+<!-- ================= OFFICE DETAIL ================= -->
+<section class="view" id="view-office">
+  <div class="detail-hero">
+    <div class="container">
+      <div style="margin-bottom:12px"><button class="back-btn" onclick="goBack()">← Back</button></div>
+      <div class="breadcrumb"><a href="#" onclick="go('directory');return false;">Office directory</a> &rsaquo; <span id="dCrumb"></span></div>
+      <h1 id="dName"></h1>
+      <div class="detail-tags" id="dTags"></div>
+    </div>
+  </div>
+  <div class="container" style="padding-bottom:40px">
+    <div class="detail-grid">
+      <div>
+        <div class="panel">
+          <div class="tabs">
+            <button class="active" onclick="setTab(this,'docs')">Documents</button>
+            <button onclick="setTab(this,'queries')">Queries</button>
+          </div>
+          <div id="tab-docs">
+            <div class="doc-row">
+              <div>
+                <div class="doc-name">Monthly expenditure statement — August 2026</div>
+                <div class="doc-meta">PDF · 1.4 MB · uploaded 02 Sep 2026 · v3 · 218 downloads</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <span class="badge pub">Public</span>
+                <a class="doc-dl" href="#" onclick="toast('Download would begin here');return false;">Download</a>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div>
+                <div class="doc-name">Office order — delegation of drawing powers</div>
+                <div class="doc-meta">PDF · 620 KB · uploaded 24 Aug 2026 · v1 · 94 downloads</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <span class="badge pub">Public</span>
+                <a class="doc-dl" href="#" onclick="toast('Download would begin here');return false;">Download</a>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div>
+                <div class="doc-name">Pension case register — Q2 FY 2026-27</div>
+                <div class="doc-meta">XLSX · 3.1 MB · uploaded 18 Aug 2026 · v2</div>
+              </div>
+              <span class="badge int">Internal only</span>
+            </div>
+            <div class="doc-row">
+              <div>
+                <div class="doc-name">GPF annual statement compilation</div>
+                <div class="doc-meta">DOCX · 880 KB · uploaded 11 Aug 2026 · v1 · 47 downloads</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <span class="badge pub">Public</span>
+                <a class="doc-dl" href="#" onclick="toast('Download would begin here');return false;">Download</a>
+              </div>
+            </div>
+          </div>
+          <div id="tab-queries" style="display:none">
+            <div class="comment">
+              <div class="cm-head"><span>Query on: Monthly expenditure statement — August 2026</span><span>04 Sep 2026</span></div>
+              <div class="cm-body">Figures in Annexure II do not tally with the July closing balance. Request clarification before the next compilation.</div>
+            </div>
+            <div class="comment">
+              <div class="cm-head"><span>Query on: Office order — delegation of drawing powers</span><span>28 Aug 2026</span></div>
+              <div class="cm-body">Does this supersede the order dated 11 March 2026 or run alongside it?</div>
+            </div>
+            <div style="margin-top:18px">
+              <label for="cmt" style="display:block;font-size:.85rem;margin-bottom:6px;font-weight:500">Raise a query on a published document</label>
+              <textarea id="cmt" placeholder="Reference the document and describe the issue."></textarea>
+              <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                <span style="font-size:.8rem;color:var(--slate-light)">Queries are checked by the office before they appear here.</span>
+                <button class="btn btn-primary" onclick="submitQuery()">Send query</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <div class="panel-head"><h2>Sanctioned strength</h2></div>
+          <ul class="info-list" id="dStats"></ul>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Office record</h2></div>
+          <ul class="info-list" id="dInfo"></ul>
+          <p style="font-size:.78rem;color:var(--slate-light);margin:12px 0 0">Contact details are maintained by the office administrator. Blank fields have not yet been filled in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOGIN ================= -->
+<section class="view" id="view-login">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="brand-mark">PCCA</div>
+      <h1>Sign in</h1>
+      <div class="sub">For Super Administrators and PAO office administrators.</div>
+      <div class="field">
+        <label for="u">Office ID or email</label>
+        <input id="u" type="text" autocomplete="username" placeholder="pao.crpf@mha.gov.in">
+      </div>
+      <div class="field">
+        <label for="p">Password</label>
+        <input id="p" type="password" autocomplete="current-password" placeholder="••••••••••">
+      </div>
+      <div class="captcha-box">
+        <span id="cap">7K4N92</span>
+        <button class="btn btn-outline" style="padding:4px 10px;font-size:.78rem" onclick="newCap()">New code</button>
+      </div>
+      <div class="field">
+        <label for="capin">Enter the code above</label>
+        <input id="capin" type="text" inputmode="text" autocomplete="off">
+      </div>
+      <div class="field-row">
+        <label style="font-weight:400;display:flex;gap:6px;align-items:center;margin:0">
+          <input type="checkbox" style="width:auto"> Keep me signed in
+        </label>
+        <a href="#" onclick="toast('Reset link would be sent to the registered office email');return false;">Forgot password</a>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="doLogin()">Sign in</button>
+      <div class="auth-foot">A one-time code is sent to your registered mobile after this step.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<section class="view" id="view-dashboard">
+  <div class="dash-shell">
+    <aside class="dash-side" data-dash-nav="dashboard"></aside>
+    <div class="dash-main">
+      <div class="dash-topline">
+        <div style="display:flex;align-items:center;gap:12px"><button class="back-btn" onclick="goBack()">← Back</button><h1>Dashboard</h1></div>
+        <div class="module-actions">
+          <button class="btn btn-outline" onclick="exportCSV()">Export office data</button>
+          <button class="btn btn-primary" onclick="go('bill-pendency')">Update reports</button>
+        </div>
+      </div>
+
+      <div class="dashboard-intro">
+        <p><strong>Central PCCA overview.</strong> Use the four summary cards to open office-wise sanctioned-strength details. Audit and bill-pendency information is maintained separately so operational reports are not mixed with establishment data.</p>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi clickable"><button onclick="openStrengthModal('offices')"><div class="num" id="k1">85</div><div class="lbl">Offices</div><span class="hint">Open the 85-office directory →</span></button></div>
+        <div class="kpi clickable"><button onclick="openStrengthModal('srAO')"><div class="num" id="k2">196</div><div class="lbl">Sr. Accounts Officers</div><span class="hint">View PAO-wise sanctioned strength →</span></button></div>
+        <div class="kpi clickable"><button onclick="openStrengthModal('aao')"><div class="num" id="k3">253</div><div class="lbl">Assistant Accounts Officers</div><span class="hint">View PAO-wise sanctioned strength →</span></button></div>
+        <div class="kpi clickable"><button onclick="openStrengthModal('acctt')"><div class="num" id="k4">912</div><div class="lbl">Sr. Accountants / Accountants</div><span class="hint">View PAO-wise sanctioned strength →</span></button></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div><h2>All 85 offices — sanctioned strength</h2><p style="font-size:.82rem;margin:3px 0 0">Every office is shown with its cadre-wise sanctioned strength. Click an office name to open its record.</p></div>
+          <a class="doc-dl" href="#" onclick="go('directory');return false;">View all offices</a>
+        </div>
+        <div class="report-toolbar" style="margin-bottom:10px"><input id="dashboardOfficeSearch" class="grow" type="search" placeholder="Search office or organisation…" oninput="drawOfficeStrengthTable()"></div>
+        <div id="topChart"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="dash-cols">
+        <div class="panel">
+          <div class="panel-head"><h2>Report status</h2></div>
+          <ul class="data-list">
+            <li><div><div>Audit reports</div><div class="meta">Office-wise para status</div></div><a class="clickable-link" href="#" onclick="go('audit');return false;">Open</a></li>
+            <li><div><div>Bill pendency</div><div class="meta">GeM / Non-GeM and ageing</div></div><a class="clickable-link" href="#" onclick="go('bill-pendency');return false;">Open</a></li>
+            <li><div><div>Training</div><div class="meta">Current-year training register</div></div><a class="clickable-link" href="#" onclick="go('training');return false;">Open</a></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Quick actions</h2></div>
+          <ul class="data-list">
+            <li><div><div>Update audit report</div><div class="meta">Upload or enter para status for a PAO</div></div><a class="clickable-link" href="#" onclick="go('audit');return false;">Go</a></li>
+            <li><div><div>Update bill pendency</div><div class="meta">Upload or enter the latest PAO report</div></div><a class="clickable-link" href="#" onclick="go('bill-pendency');return false;">Go</a></li>
+            <li><div><div>Manage office access</div><div class="meta">Central administrator and office users</div></div><a class="clickable-link" href="#" onclick="go('admin');return false;">Go</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUDIT ================= -->
+<section class="view" id="view-audit">
+  <div class="dash-shell">
+    <aside class="dash-side" data-dash-nav="audit"></aside>
+    <div class="dash-main">
+      <div class="dash-topline">
+        <div style="display:flex;align-items:center;gap:12px"><button class="back-btn" onclick="goBack()">← Back</button><div><h1>Audit</h1><p style="margin:3px 0 0;font-size:.84rem">Office-wise audit para position and outstanding objections.</p></div></div>
+        <button class="btn btn-primary" onclick="document.getElementById('auditUploadFile').click()">Upload audit report</button>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-stat"><div class="num" id="auditTotalParas">—</div><div class="lbl">Total audit paras</div><div class="sub">Awaiting office reports</div></div>
+        <div class="report-stat"><div class="num" id="auditDroppedParas">—</div><div class="lbl">Dropped paras</div><div class="sub">Closed / dropped</div></div>
+        <div class="report-stat"><div class="num" id="auditBalanceParas">—</div><div class="lbl">Balance paras</div><div class="sub">Outstanding objections</div></div>
+        <div class="report-stat"><div class="num" id="auditSubmitted">0 / 85</div><div class="lbl">Reports received</div><div class="sub">Office-wise submission status</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h2>Upload audit report data</h2><p style="font-size:.8rem;margin:3px 0 0">Each PAO can submit its current para position. The report remains associated with that office.</p></div></div>
+        <div class="upload-card">
+          <div class="upload-title">PAO report submission</div>
+          <div class="upload-sub">Enter the figures below and optionally attach the supporting report. No audit figures are pre-filled until an office submits them.</div>
+          <div class="upload-form">
+            <div class="field"><label for="auditOffice">PAO / Office</label><select id="auditOffice"></select></div>
+            <div class="field"><label for="auditTotalInput">Total paras</label><input id="auditTotalInput" type="number" min="0" step="1" placeholder="0"></div>
+            <div class="field"><label for="auditDroppedInput">Dropped paras</label><input id="auditDroppedInput" type="number" min="0" step="1" placeholder="0"></div>
+            <div class="field"><label for="auditBalanceInput">Balance objections</label><input id="auditBalanceInput" type="number" min="0" step="1" placeholder="0"></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px">
+            <input id="auditUploadFile" type="file" accept=".pdf,.xlsx,.xls,.csv" style="display:none" onchange="queueReportFile(this,'auditFileName')">
+            <button class="btn btn-outline" onclick="document.getElementById('auditUploadFile').click()">Choose report file</button>
+            <span id="auditFileName" style="font-size:.8rem;color:var(--slate-light)">No file selected</span>
+            <button class="btn btn-primary" onclick="saveAuditReport()">Save audit report</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h2>Office-wise audit position</h2><p style="font-size:.8rem;margin:3px 0 0">Use the search to find a PAO and review its latest submitted figures.</p></div><button class="btn btn-outline" onclick="exportAuditCSV()">Export CSV</button></div>
+        <div class="report-toolbar"><input id="auditSearch" class="grow" type="search" placeholder="Search office…" oninput="renderAuditTable()"><select id="auditStatusFilter" onchange="renderAuditTable()"><option value="">All submission status</option><option value="Submitted">Submitted</option><option value="Pending">Pending</option></select></div>
+        <div class="table-wrap scroll-table"><div id="auditTable"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BILL PENDENCY ================= -->
+<section class="view" id="view-bill-pendency">
+  <div class="dash-shell">
+    <aside class="dash-side" data-dash-nav="bill-pendency"></aside>
+    <div class="dash-main">
+      <div class="dash-topline">
+        <div style="display:flex;align-items:center;gap:12px"><button class="back-btn" onclick="goBack()">← Back</button><div><h1>Bill Pendency</h1><p style="margin:3px 0 0;font-size:.84rem">Office-wise GeM and Non-GeM bill pendency, ageing and reasons.</p></div></div>
+        <button class="btn btn-primary" onclick="document.getElementById('billUploadFile').click()">Upload report</button>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-stat"><div class="num" id="billNonGemTotal">0</div><div class="lbl">Non-GeM bills pending</div><div class="sub">Loaded report</div></div>
+        <div class="report-stat"><div class="num" id="billGemTotal">0</div><div class="lbl">GeM bills pending</div><div class="sub">Loaded report</div></div>
+        <div class="report-stat"><div class="num" id="billNonGemOld">0</div><div class="lbl">Non-GeM &gt; 2 working days</div><div class="sub">Ageing threshold</div></div>
+        <div class="report-stat"><div class="num" id="billGemOld">0</div><div class="lbl">GeM &gt; 1 working day</div><div class="sub">Ageing threshold</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h2>PAO report submission</h2><p style="font-size:.8rem;margin:3px 0 0">The table below is preloaded with the supplied 03 August 2026 report format. New office submissions can replace an office's current figures.</p></div></div>
+        <div class="upload-card">
+          <div class="upload-title">Upload bill pendency report</div>
+          <div class="upload-sub">Attach PDF/XLSX/CSV or enter the four report figures directly. The reason field is retained with the office record.</div>
+          <div class="upload-form">
+            <div class="field"><label for="billOffice">PAO / Office</label><select id="billOffice"></select></div>
+            <div class="field"><label for="billNonGemInput">Non-GeM pending</label><input id="billNonGemInput" type="number" min="0" step="1" placeholder="0"></div>
+            <div class="field"><label for="billGemInput">GeM pending</label><input id="billGemInput" type="number" min="0" step="1" placeholder="0"></div>
+            <div class="field"><label for="billNonGemOldInput">Non-GeM &gt; 2 days</label><input id="billNonGemOldInput" type="number" min="0" step="1" placeholder="0"></div>
+          </div>
+          <div class="upload-form" style="margin-top:12px;grid-template-columns:1fr 1fr 2fr auto">
+            <div class="field"><label for="billGemOldInput">GeM &gt; 1 day</label><input id="billGemOldInput" type="number" min="0" step="1" placeholder="0"></div>
+            <div class="field"><label for="billDateInput">Report date</label><input id="billDateInput" type="date" value="2026-08-03"></div>
+            <div class="field"><label for="billReasonInput">Reason / remarks</label><input id="billReasonInput" type="text" maxlength="500" placeholder="Reason for pendency, if any"></div>
+            <div class="field"><label>&nbsp;</label><button class="btn btn-primary" onclick="saveBillReport()">Save report</button></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px">
+            <input id="billUploadFile" type="file" accept=".pdf,.xlsx,.xls,.csv" style="display:none" onchange="queueReportFile(this,'billFileName')">
+            <button class="btn btn-outline" onclick="document.getElementById('billUploadFile').click()">Choose report file</button>
+            <span id="billFileName" style="font-size:.8rem;color:var(--slate-light)">No file selected</span>
+            <button class="btn btn-outline" onclick="downloadBillTemplate()">Download CSV template</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h2>Office-wise bill pendency</h2><p style="font-size:.8rem;margin:3px 0 0">Loaded sample report: 03 Aug 2026, end of day 5:30 PM; data received from PAOs till 7:00 PM.</p></div><button class="btn btn-outline" onclick="exportBillCSV()">Export CSV</button></div>
+        <div class="report-toolbar"><input id="billSearch" class="grow" type="search" placeholder="Search PAO…" oninput="renderBillTable()"><select id="billStationFilter" onchange="renderBillTable()"><option value="">All stations</option></select><select id="billReasonFilter" onchange="renderBillTable()"><option value="">All reasons</option><option value="has-reason">Has remarks</option><option value="no-reason">No remarks</option></select></div>
+        <div class="table-wrap scroll-table"><div id="billTable"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRAINING ================= -->
+<section class="view" id="view-training">
+  <div class="dash-shell">
+    <aside class="dash-side" data-dash-nav="training"></aside>
+    <div class="dash-main">
+      <div class="dash-topline"><div style="display:flex;align-items:center;gap:12px"><button class="back-btn" onclick="goBack()">← Back</button><div><h1>Training</h1><p style="margin:3px 0 0;font-size:.84rem">Current-year training register.</p></div></div></div>
+      <div class="panel">
+        <div class="empty-report"><strong>Training module ready</strong>No training records have been added yet. This tab is intentionally left empty for the current phase.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= UPLOAD ================= -->
+<section class="view" id="view-upload">
+  <div class="dash-shell">
+    <aside class="dash-side" data-dash-nav="upload"></aside>
+    <div class="dash-main">
+      <div class="dash-topline"><div style="display:flex;align-items:center;gap:12px"><button class="back-btn" onclick="goBack()">← Back</button><div><h1>Document uploads</h1><p style="margin:3px 0 0;font-size:.84rem">General office documents and circulars. Operational reports now have their own Audit and Bill Pendency modules.</p></div></div></div>
+      <div class="panel">
+        <div class="dropzone" id="dz" onclick="fakeUpload()">
+          <div class="dz-title">Drop a document here, or click to choose</div>
+          <div class="dz-sub">PDF, DOCX or XLSX · up to 25 MB each</div>
+        </div>
+        <div id="uploads" style="margin-top:16px"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2>File details</h2></div>
+        <div class="form-grid">
+          <div class="field"><label for="oSel">Issuing office</label><select id="oSel"></select></div>
+          <div class="field"><label for="dType">Document type</label><select id="dType"><option>Circular</option><option>Office order</option><option>Monthly statement</option><option>Audit report</option><option>Pension case</option><option>Form</option><option>Other</option></select></div>
+          <div class="field"><label for="dDate">Document date</label><input id="dDate" type="date"></div>
+          <div class="field"><label for="dConf">Visibility</label><select id="dConf"><option>Public — anyone can download</option><option>Internal — signed-in offices only</option><option>Restricted — needs approval</option></select></div>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:10px;justify-content:flex-end"><button class="btn btn-outline" onclick="toast('Saved as draft')">Save as draft</button><button class="btn btn-primary" onclick="toast('Submitted for moderation')">Submit for moderation</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADMIN ================= -->
+<section class="view" id="view-admin">
+  <div class="dash-shell">
+    <aside class="dash-side" data-dash-nav="admin"></aside>
+    <div class="dash-main">
+      <div class="dash-topline">
+        <div style="display:flex;align-items:center;gap:12px"><button class="back-btn" onclick="goBack()">← Back</button><div><h1>Administration</h1><p style="margin:3px 0 0;font-size:.84rem">Manage the central administrator and office-level access.</p></div></div>
+        <button class="btn btn-primary" onclick="toast('Use an office record below to enable access')">Enable office access</button>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>How access works</h2></div>
+        <div class="role-map">
+          <div class="role-card"><h3>Central administrator</h3><p><strong>Principal Accounts Office (PRAO), MHA</strong> — manages the portal, office records, report consolidation, moderation and access.</p></div>
+          <div class="role-card"><h3>Office user</h3><p><strong>PAO / RPAO / ZPAO / other office</strong> — submits its own reports and maintains its own office information. It does not manage other offices.</p></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h2>Office access</h2><p style="font-size:.8rem;margin:3px 0 0">“Enabled” means an office can sign in. “Not configured” means no office-level account has been enabled yet.</p></div></div>
+        <div class="admin-filter"><input id="adminSearch" type="search" placeholder="Search office or station…" oninput="drawAdminList()"></div>
+        <div class="table-wrap scroll-table" style="border:0"><div id="adminList"></div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Moderation</h2></div>
+        <ul class="data-list">
+          <li><div><div>Revised TA/DA circular</div><div class="meta">PAO(CRPF) · restricted · submitted for review</div></div><div style="display:flex;gap:8px"><button class="btn btn-outline" style="padding:5px 12px;font-size:.8rem" onclick="toast('Returned to office with remarks')">Return</button><button class="btn btn-primary" style="padding:5px 12px;font-size:.8rem" onclick="toast('Published')">Publish</button></div></li>
+          <li><div><div>Audit para compliance note</div><div class="meta">IAP, BSF, Jammu · internal · submitted for review</div></div><div style="display:flex;gap:8px"><button class="btn btn-outline" style="padding:5px 12px;font-size:.8rem" onclick="toast('Returned to office with remarks')">Return</button><button class="btn btn-primary" style="padding:5px 12px;font-size:.8rem" onclick="toast('Published')">Publish</button></div></li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Recent administration activity</h2></div>
+        <div class="audit-row"><span class="ts">15 Sep 09:41</span><span><strong>PAO(ITBP)</strong> replaced a document — version 4 created</span></div>
+        <div class="audit-row"><span class="ts">15 Sep 08:12</span><span><strong>ZPAO(SSB), Patna</strong> office access enabled</span></div>
+        <div class="audit-row"><span class="ts">14 Sep 17:55</span><span><strong>PAD(BSF)</strong> published 3 files as public</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="modal-backdrop" id="strengthModal" role="dialog" aria-modal="true" aria-labelledby="strengthModalTitle" onclick="closeStrengthModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head"><h2 id="strengthModalTitle">Office-wise sanctioned strength</h2><button class="modal-close" onclick="closeStrengthModal()">Close</button></div>
+    <div class="modal-body" id="strengthModalBody"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Principal Chief Controller of Accounts</h4>
+        <p style="color:#9fb3c8;font-size:.85rem;max-width:40ch">Principal Accounts Office, Ministry of Home Affairs, North Block, New Delhi 110001.</p>
+      </div>
+      <div>
+        <h4>On this site</h4>
+        <a href="#" onclick="go('directory');return false;">Office directory</a>
+        <a href="#" onclick="go('login');return false;">Office sign-in</a>
+        <a href="#" onclick="toast('Help content will be provided by the portal administrator');return false;">Help</a>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="#" onclick="toast('Accessibility statement');return false;">Accessibility statement</a>
+        <a href="#" onclick="toast('Terms of use');return false;">Terms of use</a>
+        <a href="#" onclick="toast('Privacy');return false;">Privacy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ministry of Home Affairs, Government of India</span>
+      <span>Last updated 23 September 2026 · pcca.mha.gov.in</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/api.js"></script>
+<script>
+// PCCA — MHA Pay & Accounts Offices dataset, used as the embedded fallback when the API is unavailable
+const PCC_OFFICES = [
+  {
+    "id": "pao-001",
+    "name": "PR.A.O.",
+    "force": "Principal AO",
+    "location": "New Delhi (HQ)",
+    "srAO": 5,
+    "aao": 6,
+    "acctt": 23,
+    "status": "Active"
+  },
+  {
+    "id": "pao-002",
+    "name": "PAO(SECTT.)",
+    "force": "MHA Secretariat",
+    "location": "New Delhi (HQ)",
+    "srAO": 2,
+    "aao": 7,
+    "acctt": 25,
+    "status": "Active"
+  },
+  {
+    "id": "pao-003",
+    "name": "PAO(P&M)",
+    "force": "Police Modernisation",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 5,
+    "acctt": 13,
+    "status": "Active"
+  },
+  {
+    "id": "pao-004",
+    "name": "PAO, DP(HQ)",
+    "force": "Delegated Powers Cell",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-005",
+    "name": "PAO, DP(I)",
+    "force": "Delegated Powers Cell",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-006",
+    "name": "PAO, DP(II)",
+    "force": "Delegated Powers Cell",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-007",
+    "name": "PAO(CISF)",
+    "force": "CISF",
+    "location": "New Delhi (HQ)",
+    "srAO": 8,
+    "aao": 7,
+    "acctt": 50,
+    "status": "Active"
+  },
+  {
+    "id": "pao-008",
+    "name": "IAW(HQ)",
+    "force": "MHA (General)",
+    "location": "New Delhi (HQ)",
+    "srAO": 15,
+    "aao": 9,
+    "acctt": 16,
+    "status": "Active"
+  },
+  {
+    "id": "pao-009",
+    "name": "PAO(DCPW)",
+    "force": "DCPW",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 4,
+    "acctt": 13,
+    "status": "Active"
+  },
+  {
+    "id": "pao-010",
+    "name": "PAO(ITBP)",
+    "force": "ITBP",
+    "location": "New Delhi (HQ)",
+    "srAO": 8,
+    "aao": 10,
+    "acctt": 47,
+    "status": "Active"
+  },
+  {
+    "id": "pao-011",
+    "name": "PAO(NSG)",
+    "force": "NSG",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 5,
+    "acctt": 10,
+    "status": "Active"
+  },
+  {
+    "id": "pao-012",
+    "name": "PAO(IB)",
+    "force": "IB",
+    "location": "New Delhi (HQ)",
+    "srAO": 7,
+    "aao": 12,
+    "acctt": 51,
+    "status": "Active"
+  },
+  {
+    "id": "pao-013",
+    "name": "PAO(CENSUS)",
+    "force": "Census",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 5,
+    "acctt": 16,
+    "status": "Active"
+  },
+  {
+    "id": "pao-014",
+    "name": "PAO(SSB)",
+    "force": "SSB",
+    "location": "New Delhi (HQ)",
+    "srAO": 6,
+    "aao": 8,
+    "acctt": 34,
+    "status": "Active"
+  },
+  {
+    "id": "pao-015",
+    "name": "PAO(NIA)",
+    "force": "NIA",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-016",
+    "name": "PAO(NDMA)",
+    "force": "NDMA",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-017",
+    "name": "NDRF",
+    "force": "NDRF",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-018",
+    "name": "PAO (NATGRID)",
+    "force": "NATGRID",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-019",
+    "name": "PAD(BSF)",
+    "force": "BSF",
+    "location": "New Delhi (HQ)",
+    "srAO": 20,
+    "aao": 21,
+    "acctt": 117,
+    "status": "Active"
+  },
+  {
+    "id": "pao-020",
+    "name": "PAO(CRPF)",
+    "force": "CRPF",
+    "location": "New Delhi (HQ)",
+    "srAO": 20,
+    "aao": 21,
+    "acctt": 157,
+    "status": "Active"
+  },
+  {
+    "id": "pao-021",
+    "name": "IAP(HQ), CRPF",
+    "force": "CRPF",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 0,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-022",
+    "name": "IAP, CRPF",
+    "force": "CRPF",
+    "location": "New Delhi (HQ)",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-023",
+    "name": "NATGRID (Encadre)",
+    "force": "NATGRID",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-024",
+    "name": "FCRA (Encadre)",
+    "force": "FCRA",
+    "location": "New Delhi (HQ)",
+    "srAO": 6,
+    "aao": 0,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-025",
+    "name": "PAO (AYUSHMAN-1)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-026",
+    "name": "PAO (AYUSHMAN-2)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-027",
+    "name": "PAO (AYUSHMAN-3)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-028",
+    "name": "PAO (AYUSHMAN-4)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-029",
+    "name": "PAO (AYUSHMAN-5)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-030",
+    "name": "PAO (AYUSHMAN-6)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-031",
+    "name": "PAO (AYUSHMAN-7)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-032",
+    "name": "PAO (AYUSHMAN-8)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-033",
+    "name": "PAO (AYUSHMAN-9)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-034",
+    "name": "PAO (AYUSHMAN-10)",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-035",
+    "name": "IAP AYUSHMAN",
+    "force": "Ayushman Bharat Cadre",
+    "location": "New Delhi (HQ)",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-036",
+    "name": "RPAO(IB), Shillong",
+    "force": "IB",
+    "location": "Shillong",
+    "srAO": 1,
+    "aao": 4,
+    "acctt": 11,
+    "status": "Active"
+  },
+  {
+    "id": "pao-037",
+    "name": "PAO(AR), Shillong",
+    "force": "Assam Rifles",
+    "location": "Shillong",
+    "srAO": 6,
+    "aao": 16,
+    "acctt": 20,
+    "status": "Active"
+  },
+  {
+    "id": "pao-038",
+    "name": "PAO(BSF), Shillong",
+    "force": "BSF",
+    "location": "Shillong",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-039",
+    "name": "IAP, MHA, Shillong",
+    "force": "MHA",
+    "location": "Shillong",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-040",
+    "name": "IAP, BSF, Shillong",
+    "force": "BSF",
+    "location": "Shillong",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-041",
+    "name": "RPAO(CISF), Kolkata",
+    "force": "CISF",
+    "location": "Kolkata",
+    "srAO": 2,
+    "aao": 9,
+    "acctt": 22,
+    "status": "Active"
+  },
+  {
+    "id": "pao-042",
+    "name": "PAO(CRPF), Kolkata",
+    "force": "CRPF",
+    "location": "Kolkata",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 10,
+    "status": "Active"
+  },
+  {
+    "id": "pao-043",
+    "name": "PAO(NSG), Kolkata",
+    "force": "NSG",
+    "location": "Kolkata",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-044",
+    "name": "IAP, BSF, Kolkata",
+    "force": "BSF",
+    "location": "Kolkata",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-045",
+    "name": "IAP, MHA, Kolkata",
+    "force": "MHA",
+    "location": "Kolkata",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-046",
+    "name": "ZPAO(SSB), Patna",
+    "force": "SSB",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 12,
+    "status": "Active"
+  },
+  {
+    "id": "pao-047",
+    "name": "IAP, MHA, Patna",
+    "force": "MHA",
+    "location": "Patna",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-048",
+    "name": "RPAO(CRPF), Patna",
+    "force": "CRPF",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 12,
+    "status": "Active"
+  },
+  {
+    "id": "pao-049",
+    "name": "IAP, CRPF, Patna",
+    "force": "CRPF",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 2,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-050",
+    "name": "RPAO(ITBP), Patna",
+    "force": "ITBP",
+    "location": "Patna",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-051",
+    "name": "RPAO(CISF), Ranchi",
+    "force": "CISF",
+    "location": "Ranchi",
+    "srAO": 1,
+    "aao": 8,
+    "acctt": 15,
+    "status": "Active"
+  },
+  {
+    "id": "pao-052",
+    "name": "IAP, MHA, Ranchi",
+    "force": "MHA",
+    "location": "Ranchi",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-053",
+    "name": "PAO(CRPF), Raipur",
+    "force": "CRPF",
+    "location": "Raipur",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 9,
+    "status": "Active"
+  },
+  {
+    "id": "pao-054",
+    "name": "ZPAO(SSB), Lucknow",
+    "force": "SSB",
+    "location": "Lucknow",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 12,
+    "status": "Active"
+  },
+  {
+    "id": "pao-055",
+    "name": "IAP, CRPF, Lucknow",
+    "force": "CRPF",
+    "location": "Lucknow",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-056",
+    "name": "PAO(ITBP), Dehradun",
+    "force": "ITBP",
+    "location": "Dehradun",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-057",
+    "name": "PAO(CRPF), Jammu",
+    "force": "CRPF",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 3,
+    "acctt": 7,
+    "status": "Active"
+  },
+  {
+    "id": "pao-058",
+    "name": "PAO(BSF), Jammu",
+    "force": "BSF",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-059",
+    "name": "IAP, BSF, Jammu",
+    "force": "BSF",
+    "location": "Jammu",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-060",
+    "name": "PAO(CRPF), Hyderabad",
+    "force": "CRPF",
+    "location": "Hyderabad",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 10,
+    "status": "Active"
+  },
+  {
+    "id": "pao-061",
+    "name": "PAO(NSG), Hyderabad",
+    "force": "NSG",
+    "location": "Hyderabad",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 3,
+    "status": "Active"
+  },
+  {
+    "id": "pao-062",
+    "name": "RPAO(CISF), Chennai",
+    "force": "CISF",
+    "location": "Chennai",
+    "srAO": 3,
+    "aao": 5,
+    "acctt": 15,
+    "status": "Active"
+  },
+  {
+    "id": "pao-063",
+    "name": "IAP, MHA, Chennai",
+    "force": "MHA",
+    "location": "Chennai",
+    "srAO": 2,
+    "aao": 0,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-064",
+    "name": "IAP, CRPF, Chennai",
+    "force": "CRPF",
+    "location": "Chennai",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-065",
+    "name": "ZPAO(SSB), Guwahati",
+    "force": "SSB",
+    "location": "Guwahati",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-066",
+    "name": "IAP, CRPF, Guwahati",
+    "force": "CRPF",
+    "location": "Guwahati",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-067",
+    "name": "RPAO(ITBP), Guwahati",
+    "force": "ITBP",
+    "location": "Guwahati",
+    "srAO": 2,
+    "aao": 3,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-068",
+    "name": "RPAO(CISF), Mumbai",
+    "force": "CISF",
+    "location": "Mumbai",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 9,
+    "status": "Active"
+  },
+  {
+    "id": "pao-069",
+    "name": "IAP, BSF, Srinagar",
+    "force": "BSF",
+    "location": "Srinagar",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-070",
+    "name": "IAP, BSF, Jodhpur",
+    "force": "BSF",
+    "location": "Jodhpur",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-071",
+    "name": "IAP, BSF, Jalandhar",
+    "force": "BSF",
+    "location": "Jalandhar",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-072",
+    "name": "IAP, BSF, Siliguri",
+    "force": "BSF",
+    "location": "Siliguri",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-073",
+    "name": "IAP, BSF, Agartala (Tripura) PAD Cadre",
+    "force": "BSF",
+    "location": "Agartala",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-074",
+    "name": "IAP, BSF, Gandhinagar (Gujarat)",
+    "force": "BSF",
+    "location": "Gandhinagar",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pao-075",
+    "name": "IAP, CRPF, Ajmer",
+    "force": "CRPF",
+    "location": "Ajmer",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 8,
+    "status": "Active"
+  },
+  {
+    "id": "pao-076",
+    "name": "IAP, CRPF, Allahabad",
+    "force": "CRPF",
+    "location": "Allahabad",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-077",
+    "name": "IAP, CRPF, Chandigarh",
+    "force": "CRPF",
+    "location": "Chandigarh",
+    "srAO": 2,
+    "aao": 1,
+    "acctt": 6,
+    "status": "Active"
+  },
+  {
+    "id": "pao-078",
+    "name": "RPAO(CRPF), Bangaluru",
+    "force": "CRPF",
+    "location": "Bangaluru",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-079",
+    "name": "ZPAO(SSB), Ranidanga",
+    "force": "SSB",
+    "location": "Ranidanga",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-080",
+    "name": "ZPAO(SSB), Kathgodam",
+    "force": "SSB",
+    "location": "Kathgodam",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 4,
+    "status": "Active"
+  },
+  {
+    "id": "pao-081",
+    "name": "PAO (J&K Home Deptt.), Jammu",
+    "force": "J&K Home Deptt.",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 1,
+    "status": "Active"
+  },
+  {
+    "id": "pao-082",
+    "name": "PAO (J&K Home Deptt.), Srinagar-1",
+    "force": "Assam Rifles",
+    "location": "Srinagar",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-083",
+    "name": "PAO (J&K Home Deptt.), Srinagar-2",
+    "force": "Assam Rifles",
+    "location": "Srinagar",
+    "srAO": 1,
+    "aao": 2,
+    "acctt": 2,
+    "status": "Active"
+  },
+  {
+    "id": "pao-084",
+    "name": "IAP (J&K Home Deptt), Jammu",
+    "force": "J&K Home Deptt.",
+    "location": "Jammu",
+    "srAO": 1,
+    "aao": 1,
+    "acctt": 0,
+    "status": "Active"
+  },
+  {
+    "id": "pao-085",
+    "name": "IAP (J&K Home Deptt.), Srinagar",
+    "force": "Assam Rifles",
+    "location": "Srinagar",
+    "srAO": 0,
+    "aao": 0,
+    "acctt": 0,
+    "status": "Active"
+  }
+];
+
+</script>
+<script>
+/* ---------- state ---------- */
+var layout = 'cards';
+var sortCol = null, sortDir = 1;
+
+function total(o){ return o.srAO + o.aao + o.acctt; }
+
+var TOTALS = {
+  offices: PCC_OFFICES.length,
+  srAO: PCC_OFFICES.reduce(function(a,o){return a+o.srAO;},0),
+  aao: PCC_OFFICES.reduce(function(a,o){return a+o.aao;},0),
+  acctt: PCC_OFFICES.reduce(function(a,o){return a+o.acctt;},0)
+};
+
+/* ---------- routing ---------- */
+var viewHistory = [{view:'home', id:null}];
+var currentRoute = {view:'home', id:null};
+function go(view, id, fromBack){
+  if(!fromBack && (view!==currentRoute.view || id!==currentRoute.id)){
+    viewHistory.push({view:view, id:id||null});
+  }
+  currentRoute = {view:view, id:id||null};
+  document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+  var el=document.getElementById('view-'+view);
+  if(el) el.classList.add('active');
+  document.querySelectorAll('[data-nav]').forEach(function(a){ a.classList.toggle('current', a.getAttribute('data-nav')===view); });
+  document.getElementById('mainNav').classList.remove('open');
+  if(view==='office' && id) fillOffice(id);
+  if(view==='audit'){ paintAuditTotals(); renderAuditTable(); }
+  if(view==='bill-pendency'){ paintBillTotals(); renderBillTable(); }
+  window.scrollTo(0,0);
+}
+function goBack(){
+  if(viewHistory.length>1){
+    viewHistory.pop();
+    var prev=viewHistory[viewHistory.length-1];
+    go(prev.view, prev.id, true);
+  } else {
+    go('home', null, true);
+  }
+}
+
+/* ---------- home + dashboard numbers ---------- */
+function paintTotals(){
+  var map = { heroOffices:TOTALS.offices, heroSrAO:TOTALS.srAO, heroAAO:TOTALS.aao,
+    s1:TOTALS.offices, s2:TOTALS.srAO, s3:TOTALS.aao, s4:TOTALS.acctt,
+    k1:TOTALS.offices, k2:TOTALS.srAO, k3:TOTALS.aao, k4:TOTALS.acctt };
+  Object.keys(map).forEach(function(k){
+    var e = document.getElementById(k); if(e) e.textContent = map[k];
+  });
+}
+
+/* ---------- dashboard visualisation ---------- */
+function drawForceChart(){
+  var agg = {};
+  PCC_OFFICES.forEach(function(o){
+    if(!agg[o.force]) agg[o.force] = {offices:0,srAO:0,aao:0,acctt:0};
+    agg[o.force].offices++;
+    agg[o.force].srAO += Number(o.srAO)||0;
+    agg[o.force].aao += Number(o.aao)||0;
+    agg[o.force].acctt += Number(o.acctt)||0;
+  });
+  var rows = Object.keys(agg).map(function(k){
+    var r=agg[k]; r.name=k; r.total=r.srAO+r.aao+r.acctt; return r;
+  }).sort(function(a,b){ return b.total-a.total || a.name.localeCompare(b.name); });
+  document.getElementById('forceChart').innerHTML =
+    '<div class="strength-by-org">'+
+    '<div class="strength-org-row strength-org-head"><div>Organisation <span style="font-weight:400">(offices)</span></div><div class="strength-metric"><div class="l">Sr. Accounts Officers</div></div><div class="strength-metric"><div class="l">Assistant Accounts Officers</div></div><div class="strength-metric"><div class="l">Sr. Accountants / Accountants</div></div><div class="strength-total"><div class="l">Total sanctioned</div></div></div>'+
+    rows.map(function(r){ return '<div class="strength-org-row">'+
+      '<div><div class="strength-org-name">'+esc(r.name)+'</div><div class="strength-org-meta">'+r.offices+' office'+(r.offices===1?'':'s')+'</div></div>'+
+      '<div class="strength-metric"><div class="n">'+r.srAO+'</div><div class="l">Sr. AO</div></div>'+
+      '<div class="strength-metric"><div class="n">'+r.aao+'</div><div class="l">AAO</div></div>'+
+      '<div class="strength-metric"><div class="n">'+r.acctt+'</div><div class="l">Accountants</div></div>'+
+      '<div class="strength-total"><div class="n">'+r.total+'</div><div class="l">Total posts</div></div></div>'; }).join('')+
+    '</div>';
+}
+function drawOfficeStrengthTable(){
+  var q=(document.getElementById('dashboardOfficeSearch')?.value||'').toLowerCase().trim();
+  var rows = PCC_OFFICES.filter(function(o){
+    return !q || o.name.toLowerCase().indexOf(q)>=0 || o.force.toLowerCase().indexOf(q)>=0 || o.location.toLowerCase().indexOf(q)>=0;
+  }).sort(function(a,b){ return a.name.localeCompare(b.name); });
+  document.getElementById('topChart').innerHTML = '<div class="table-wrap" style="max-height:520px"><table class="report-table" style="min-width:720px"><thead><tr><th>#</th><th>Office</th><th>Organisation</th><th>Station</th><th style="text-align:right">Sr. AO</th><th style="text-align:right">AAO</th><th style="text-align:right">Sr. Acctt</th><th style="text-align:right">Total sanctioned</th></tr></thead><tbody>' +
+    rows.map(function(o,i){ return '<tr><td>'+(i+1)+'</td><td><a class="clickable-link" href="#" onclick="go(\'office\',\''+o.id+'\');return false;">'+esc(o.name)+'</a></td><td>'+esc(o.force)+'</td><td>'+esc(o.location)+'</td><td class="num">'+o.srAO+'</td><td class="num">'+o.aao+'</td><td class="num">'+o.acctt+'</td><td class="num">'+total(o)+'</td></tr>'; }).join('') +
+    '</tbody></table></div>';
+}
+
+/* ---------- directory ---------- */
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+function forceClass(f){
+  var known = ['CRPF','BSF','CISF','ITBP','SSB','NSG','IB'];
+  return known.indexOf(f) > -1 ? 'force-'+f : '';
+}
+
+function fillFilters(){
+  var forces = [], locs = [];
+  PCC_OFFICES.forEach(function(o){
+    if(forces.indexOf(o.force)<0) forces.push(o.force);
+    if(locs.indexOf(o.location)<0) locs.push(o.location);
+  });
+  forces.sort(); locs.sort();
+  var ff = document.getElementById('fForce'), fl = document.getElementById('fLoc');
+  forces.forEach(function(f){ ff.insertAdjacentHTML('beforeend','<option>'+esc(f)+'</option>'); });
+  locs.forEach(function(l){ fl.insertAdjacentHTML('beforeend','<option>'+esc(l)+'</option>'); });
+  var os = document.getElementById('oSel');
+  PCC_OFFICES.forEach(function(o){ os.insertAdjacentHTML('beforeend','<option>'+esc(o.name)+'</option>'); });
+}
+
+function filtered(){
+  var q = (document.getElementById('q').value||'').toLowerCase().trim();
+  var f = document.getElementById('fForce').value;
+  var l = document.getElementById('fLoc').value;
+  var s = document.getElementById('fSort').value;
+
+  var out = PCC_OFFICES.filter(function(o){
+    if(q && o.name.toLowerCase().indexOf(q)<0 && o.location.toLowerCase().indexOf(q)<0
+       && o.force.toLowerCase().indexOf(q)<0) return false;
+    if(f && o.force!==f) return false;
+    if(l && o.location!==l) return false;
+    return true;
+  });
+
+  if(sortCol){
+    out.sort(function(a,b){
+      var av = sortCol==='total'?total(a):a[sortCol], bv = sortCol==='total'?total(b):b[sortCol];
+      if(typeof av === 'string') return av.localeCompare(bv)*sortDir;
+      return (av-bv)*sortDir;
+    });
+  } else if(s==='name'){
+    out.sort(function(a,b){ return a.name.localeCompare(b.name); });
+  } else if(s==='total'){
+    out.sort(function(a,b){ return total(b)-total(a); });
+  } else {
+    out.sort(function(a,b){ return b[s]-a[s]; });
+  }
+  return out;
+}
+
+function render(){
+  var rows = filtered();
+  document.getElementById('resultCount').textContent =
+    rows.length + (rows.length===1?' office':' offices') + ' of ' + TOTALS.offices;
+
+  var grid = document.getElementById('grid'), list = document.getElementById('list');
+
+  if(!rows.length){
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">No office matches that. Clear a filter or try a shorter search.</div>';
+    list.innerHTML = '';
+    grid.style.display = layout==='cards'?'grid':'none';
+    list.style.display = 'none';
+    return;
+  }
+
+  if(layout==='cards'){
+    grid.style.display='grid'; list.style.display='none';
+    grid.innerHTML = rows.map(function(o){
+      return '<a class="office-card '+forceClass(o.force)+'" href="#" onclick="go(\'office\',\''+o.id+'\');return false;">'+
+        '<div class="top-row"><h3>'+esc(o.name)+'</h3><span class="force-tag">'+esc(o.force)+'</span></div>'+
+        '<div class="location">'+esc(o.location)+'</div>'+
+        '<div class="stat-trio">'+
+          '<div class="stat"><div class="n">'+o.srAO+'</div><div class="l">Sr. AO</div></div>'+
+          '<div class="stat"><div class="n">'+o.aao+'</div><div class="l">AAO</div></div>'+
+          '<div class="stat"><div class="n">'+o.acctt+'</div><div class="l">Sr. Acctt</div></div>'+
+        '</div>'+
+        '<span class="status-pill">'+esc(o.status)+'</span></a>';
+    }).join('');
+  } else {
+    grid.style.display='none'; list.style.display='block';
+    var head = '<div class="office-row head">'+
+      '<span class="sortable" onclick="sortBy(\'name\')">Office</span>'+
+      '<span class="rforce sortable" onclick="sortBy(\'force\')">Organisation</span>'+
+      '<span class="rloc sortable" onclick="sortBy(\'location\')">Station</span>'+
+      '<span class="rnum sortable" onclick="sortBy(\'srAO\')">Sr.AO</span>'+
+      '<span class="rnum sortable" onclick="sortBy(\'aao\')">AAO</span>'+
+      '<span class="rnum sortable" onclick="sortBy(\'acctt\')">Acctt</span></div>';
+    list.innerHTML = head + rows.map(function(o){
+      return '<a class="office-row" href="#" onclick="go(\'office\',\''+o.id+'\');return false;">'+
+        '<span class="rname">'+esc(o.name)+'</span>'+
+        '<span class="rforce" style="color:var(--slate);font-size:.82rem">'+esc(o.force)+'</span>'+
+        '<span class="rloc" style="color:var(--slate);font-size:.82rem">'+esc(o.location)+'</span>'+
+        '<span class="rnum">'+o.srAO+'</span><span class="rnum">'+o.aao+'</span><span class="rnum">'+o.acctt+'</span></a>';
+    }).join('');
+  }
+}
+
+function sortBy(col){
+  if(sortCol===col) sortDir = -sortDir; else { sortCol = col; sortDir = (col==='name'||col==='force'||col==='location')?1:-1; }
+  render();
+}
+
+function setLayout(l){
+  layout = l;
+  document.getElementById('btnCards').classList.toggle('active', l==='cards');
+  document.getElementById('btnList').classList.toggle('active', l==='list');
+  render();
+}
+
+/* ---------- office detail ---------- */
+function fillOffice(id){
+  var o = PCC_OFFICES.filter(function(x){ return x.id===id; })[0];
+  if(!o) return;
+  document.getElementById('dName').textContent = o.name;
+  document.getElementById('dCrumb').textContent = o.name;
+  document.getElementById('dTags').innerHTML =
+    '<span>'+esc(o.force)+'</span><span>'+esc(o.location)+'</span><span>'+esc(o.status)+'</span>';
+  document.getElementById('dStats').innerHTML =
+    '<li><span class="k">Sr. Accounts Officers</span><span class="v">'+o.srAO+'</span></li>'+
+    '<li><span class="k">Assistant Accounts Officers</span><span class="v">'+o.aao+'</span></li>'+
+    '<li><span class="k">Sr. Accountants / Accountants</span><span class="v">'+o.acctt+'</span></li>'+
+    '<li><span class="k">Total sanctioned</span><span class="v">'+total(o)+'</span></li>';
+  document.getElementById('dInfo').innerHTML =
+    '<li><span class="k">Office code</span><span class="v">'+esc(o.id.toUpperCase())+'</span></li>'+
+    '<li><span class="k">Parent organisation</span><span class="v">'+esc(o.force)+'</span></li>'+
+    '<li><span class="k">Station</span><span class="v">'+esc(o.location)+'</span></li>'+
+    '<li><span class="k">Telephone</span><span class="v" style="color:var(--slate-light)">Not yet filled in</span></li>'+
+    '<li><span class="k">Email</span><span class="v" style="color:var(--slate-light)">Not yet filled in</span></li>'+
+    '<li><span class="k">Record updated</span><span class="v">15 Sep 2026</span></li>';
+}
+
+function setTab(btn, name){
+  btn.parentElement.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('tab-docs').style.display = name==='docs'?'block':'none';
+  document.getElementById('tab-queries').style.display = name==='queries'?'block':'none';
+}
+
+function submitQuery(){
+  var t = document.getElementById('cmt');
+  if(!t.value.trim()){ toast('Write your query before sending it'); return; }
+  t.value = '';
+  toast('Query sent to the office for review');
+}
+
+/* ---------- admin list ---------- */
+function drawAdminList(){
+  var el=document.getElementById('adminList');
+  if(!el) return;
+  var q=(document.getElementById('adminSearch').value||'').toLowerCase().trim();
+  var rows=PCC_OFFICES.filter(function(o){return !q || o.name.toLowerCase().indexOf(q)>=0 || o.location.toLowerCase().indexOf(q)>=0;});
+  el.innerHTML='<table class="report-table"><thead><tr><th>#</th><th>Office</th><th>Station</th><th>Role</th><th>Access status</th><th>Action</th></tr></thead><tbody>'+rows.map(function(o,i){
+    var central=o.name==='PR.A.O.';
+    return '<tr><td>'+(i+1)+'</td><td><strong>'+esc(o.name)+'</strong></td><td>'+esc(o.location)+'</td><td>'+(central?'Central administrator':'Office user')+'</td><td><span class="access-pill '+(central?'central':'')+'">'+(central?'Enabled':'Not configured')+'</span></td><td>'+(central?'<span style="font-size:.78rem;color:var(--slate-light)">Primary account</span>':'<a class="clickable-link" href="#" onclick="toast(\'Office access setup opened\');return false;">Enable access</a>')+'</td></tr>';
+  }).join('')+'</tbody></table>';
+}
+/* ---------- dashboard navigation ---------- */
+function dashboardNav(active){
+  var items = [
+    ['dashboard','Overview'], ['directory','Offices'], ['audit','Audit'],
+    ['bill-pendency','Bill Pendency'], ['training','Training'], ['upload','Document uploads'], ['admin','Administration']
+  ];
+  return '<div class="role-badge"><strong>Central administrator</strong>Principal Accounts Office, MHA</div><nav>' +
+    items.map(function(item){ return '<a href="#" class="'+(active===item[0]?'active':'')+'" onclick="go(\''+item[0]+'\');return false;">'+item[1]+'</a>'; }).join('') +
+    '<a href="#" onclick="doSignOut();return false;">Sign out</a></nav>';
+}
+function initDashboardNav(){
+  document.querySelectorAll('[data-dash-nav]').forEach(function(el){ el.innerHTML = dashboardNav(el.getAttribute('data-dash-nav')); });
+}
+function doSignOut(){ go('home'); toast('Signed out'); }
+
+/* ---------- clickable strength cards ---------- */
+function openStrengthModal(kind){
+  if(kind==='offices'){ go('directory'); return; }
+  var labels = {srAO:'Sr. Accounts Officers', aao:'Assistant Accounts Officers', acctt:'Sr. Accountants / Accountants'};
+  var field = kind;
+  var rows = PCC_OFFICES.slice().sort(function(a,b){ return b[field]-a[field] || a.name.localeCompare(b.name); });
+  var totalValue = rows.reduce(function(sum,o){ return sum + o[field]; },0);
+  document.getElementById('strengthModalTitle').textContent = labels[kind] + ' — office-wise sanctioned strength';
+  document.getElementById('strengthModalBody').innerHTML =
+    '<div class="report-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">'+
+      '<div class="report-stat"><div class="num">'+totalValue+'</div><div class="lbl">Total sanctioned posts</div></div>'+
+      '<div class="report-stat"><div class="num">'+rows.length+'</div><div class="lbl">Offices covered</div></div></div>'+
+    '<div class="table-wrap"><table class="detail-table"><thead><tr><th>#</th><th>Office</th><th>Organisation</th><th>Station</th><th style="text-align:right">Sanctioned</th><th>Total office strength</th></tr></thead><tbody>'+
+    rows.map(function(o,i){ return '<tr><td>'+(i+1)+'</td><td><a class="clickable-link" href="#" onclick="closeStrengthModal();go(\'office\',\''+o.id+'\');return false;">'+esc(o.name)+'</a></td><td>'+esc(o.force)+'</td><td>'+esc(o.location)+'</td><td style="text-align:right;font-weight:600">'+o[field]+'</td><td style="text-align:right">'+total(o)+'</td></tr>'; }).join('')+
+    '</tbody></table></div>';
+  document.getElementById('strengthModal').classList.add('open');
+}
+function closeStrengthModal(event){
+  if(event && event.target && event.target.id!=='strengthModal') return;
+  document.getElementById('strengthModal').classList.remove('open');
+}
+
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeStrengthModal(); });
+
+/* ---------- local report state ---------- */
+var reportStorage = {};
+try {
+  reportStorage.get = function(key){ return JSON.parse(window.localStorage.getItem(key) || 'null'); };
+  reportStorage.set = function(key,value){ window.localStorage.setItem(key, JSON.stringify(value)); };
+  reportStorage.get('__pcca_test__');
+} catch (_) {
+  var memoryStore = {};
+  reportStorage.get = function(key){ return memoryStore[key] === undefined ? null : memoryStore[key]; };
+  reportStorage.set = function(key,value){ memoryStore[key] = value; };
+}
+
+/* ---------- audit reporting ---------- */
+var auditReports = reportStorage.get('pcca.auditReports') || {};
+function saveAuditReport(){
+  var office = document.getElementById('auditOffice').value;
+  var totalParas = Number(document.getElementById('auditTotalInput').value);
+  var dropped = Number(document.getElementById('auditDroppedInput').value);
+  var balance = Number(document.getElementById('auditBalanceInput').value);
+  if(!office){ toast('Select an office'); return; }
+  if([totalParas,dropped,balance].some(function(v){ return !Number.isInteger(v) || v<0; })){ toast('Enter valid non-negative whole numbers'); return; }
+  if(dropped > totalParas || balance > totalParas){ toast('Dropped and balance paras cannot exceed total paras'); return; }
+  auditReports[office] = {total:totalParas,dropped:dropped,balance:balance,file:document.getElementById('auditFileName').textContent};
+  reportStorage.set('pcca.auditReports', auditReports);
+  document.getElementById('auditTotalInput').value=''; document.getElementById('auditDroppedInput').value=''; document.getElementById('auditBalanceInput').value='';
+  toast('Audit report saved for '+office); renderAuditTable(); paintAuditTotals();
+}
+function paintAuditTotals(){
+  var keys = Object.keys(auditReports);
+  var t=0,d=0,b=0;
+  keys.forEach(function(k){ t+=Number(auditReports[k].total||0); d+=Number(auditReports[k].dropped||0); b+=Number(auditReports[k].balance||0); });
+  document.getElementById('auditTotalParas').textContent = keys.length ? t : '—';
+  document.getElementById('auditDroppedParas').textContent = keys.length ? d : '—';
+  document.getElementById('auditBalanceParas').textContent = keys.length ? b : '—';
+  document.getElementById('auditSubmitted').textContent = keys.length+' / '+PCC_OFFICES.length;
+}
+function renderAuditTable(){
+  var q=(document.getElementById('auditSearch').value||'').toLowerCase().trim();
+  var status=document.getElementById('auditStatusFilter').value;
+  var rows=PCC_OFFICES.filter(function(o){
+    var r=auditReports[o.name];
+    if(q && o.name.toLowerCase().indexOf(q)<0 && o.location.toLowerCase().indexOf(q)<0) return false;
+    if(status==='Submitted' && !r) return false;
+    if(status==='Pending' && r) return false;
+    return true;
+  });
+  document.getElementById('auditTable').innerHTML='<table class="report-table"><thead><tr><th>#</th><th>Office</th><th>Station</th><th>Total paras</th><th>Dropped</th><th>Balance objections</th><th>Status</th></tr></thead><tbody>'+rows.map(function(o,i){
+    var r=auditReports[o.name]; return '<tr><td>'+(i+1)+'</td><td>'+esc(o.name)+'</td><td>'+esc(o.location)+'</td><td class="num">'+(r?r.total:'—')+'</td><td class="num">'+(r?r.dropped:'—')+'</td><td class="num">'+(r?r.balance:'—')+'</td><td><span class="badge '+(r?'pub':'pend')+'">'+(r?'Submitted':'Pending')+'</span></td></tr>';
+  }).join('')+'</tbody></table>';
+}
+function exportAuditCSV(){
+  var csv='Office,Station,Total Paras,Dropped Paras,Balance Objections,Status\n';
+  PCC_OFFICES.forEach(function(o){ var r=auditReports[o.name]; csv+='"'+o.name.replace(/"/g,'""')+'","'+o.location+'",'+(r?r.total:'')+','+(r?r.dropped:'')+','+(r?r.balance:'')+','+(r?'Submitted':'Pending')+'\n'; });
+  downloadText(csv,'pcca-audit-status.csv','text/csv');
+}
+
+/* ---------- bill pendency sample and reporting ---------- */
+var BILL_REPORT_DATE='2026-08-03';
+var billRows=[
+['PAD (BSF) New Delhi','New Delhi',259,150,0,0,'NA'],
+['RPAO (BSF) Jammu','Jammu',453,271,0,0,'Huge Quantity of non gem and gem bills received today'],
+['RPAO (BSF) Shillong','Shillong',null,null,null,null,'Due to non functioning of PFMS portal, this office is unable to fetch data for pending bills.'],
+['PAO (CRPF) New Delhi','New Delhi',0,0,0,0,'UNABLE TO FETCH DATA DUE TO PFMS SERVER ERROR'],
+['RPAO (CRPF), Jammu','Jammu',301,164,0,0,'NA'],
+['RPAO (CRPF), Kolkata','Kolkata',2,0,0,0,'NA'],
+['RPAO (CRPF), Raipur','Raipur',0,0,0,0,'NA'],
+['RPAO (CRPF), Hyderabad','Hyderabad',null,null,null,null,''],
+['RPAO (CRPF), Patna','Patna',2,73,0,0,'ALL BILLS RECEIVED TODAY AND ARE UNDER PROCESS'],
+['RPAO (CRPF), Bengaluru','Bengaluru',521,81,120,81,'received on Saturday and Sunday'],
+['PAO (ITBP), New Delhi','New Delhi',79,100,0,0,'submitted for approval of CA, PFMS is not working'],
+['RPAO (ITBP), Guwahati','Guwahati',0,0,0,0,'NA'],
+['RPAO (ITBP), Dehradun','Dehradun',0,0,0,0,'NA'],
+['RPAO (ITBP), Patna','Patna',7,0,0,0,'NA'],
+['PAO (AR), Shillong','Shillong',0,0,0,0,''],
+['PAO (CISF), New Delhi','New Delhi',216,0,59,0,'PENDING FOR DSC'],
+['RPAO (CISF), Chennai','Chennai',24,7,0,0,'NA'],
+['RPAO (CISF), Kolkata','Kolkata',0,0,0,0,'NA'],
+['RPAO (CISF), Ranchi','Ranchi',41,0,0,0,'NA'],
+['RPAO (CISF), Navi Mumbai','Navi Mumbai',29,23,0,0,'Received today'],
+['PAO (SSB), New Delhi','New Delhi',47,123,0,0,'Tokenise today'],
+['ZPAO (SSB), Patna','Patna',0,30,0,0,'Technically issued'],
+['ZPAO (SSB), Lucknow','Lucknow',187,0,0,0,'NA'],
+['ZPAO (SSB), Guwahati','Guwahati',0,0,0,0,'NA'],
+['ZPAO (SSB), Kathgodam','Kathgodam',0,0,0,0,'NA'],
+['ZPAO (SSB), Ranidanga','Ranidanga',0,0,0,0,'Bill tokenized today, under process'],
+['PAO (IB), New Delhi','New Delhi',150,0,0,0,'Delay in processing is attributed to shortage of computer systems at dealing-hand level.'],
+['RPAO (IB), Shillong','Shillong',28,22,0,0,'PFMS is not working'],
+['PAO (NSG), New Delhi','New Delhi',0,0,0,0,'NA'],
+['RPAO (NSG), Kolkata','Kolkata',0,0,0,0,'NA'],
+['RPAO (NSG), Hyderabad','Hyderabad',0,0,0,0,'NA'],
+['PAO (DCPW), New Delhi','New Delhi',0,0,0,0,'NA'],
+['PAO (NIA), New Delhi','New Delhi',9,0,0,0,'NA'],
+['PAO (NATGRID), Delhi','Delhi',0,0,0,0,'NA'],
+['PAO (NDMA), New Delhi','New Delhi',114,22,0,5,'PFMS is not working'],
+['PAO (DPHQ), New Delhi','New Delhi',150,15,0,0,'NA'],
+['PAO (DP 1), New Delhi','New Delhi',127,85,0,0,'NA'],
+['PAO (DP 2), New Delhi','New Delhi',63,186,0,0,'NA'],
+['PAO (Sectt), New Delhi','New Delhi',15,12,0,0,'Bills received in the evening are under process & will be cleared by today evening.'],
+['PAO (P&M), New Delhi','New Delhi',null,null,null,null,''],
+['PAO (Census), New Delhi','New Delhi',26,13,0,0,'NA'],
+['PAO (Ayushman), CAPF 1','CAPF 1',21494,0,0,0,'The pendency is primarily attributable to the high volume of incoming cases vis-a-vis available manpower.'],
+['PAO (Ayushman), CAPF 2','CAPF 2',10640,0,0,0,'The pendency is primarily attributable to the high volume of incoming cases vis-a-vis available manpower.'],
+['PAO (Ayushman), CAPF 3','CAPF 3',14319,0,0,0,'The pendency is primarily attributable to the high volume of incoming cases vis-a-vis available manpower.'],
+['PAO (Ayushman), CAPF 4','CAPF 4',null,null,null,null,''],
+['PAO (Ayushman), CAPF 5','CAPF 5',3309,0,0,0,'The pendency is primarily attributable to the high volume of incoming cases vis-a-vis available manpower.'],
+['PAO (Ayushman), CAPF 6','CAPF 6',3352,0,0,0,'The delay in bill disposal is mainly due to heavy workload compared to available manpower.'],
+['PAO (Ayushman), CAPF 7','CAPF 7',7231,0,0,0,'The pendency is primarily attributable to the high volume of incoming cases vis-a-vis available manpower.'],
+['PAO (Ayushman), CAPF 8','CAPF 8',8459,0,0,0,'The pendency is primarily attributable to the high volume of incoming cases vis-a-vis available manpower.'],
+['PAO (Ayushman), CAPF 9','CAPF 9',229,0,0,0,'NA'],
+['PAO JAMMU, HD, J&K','Jammu',148,26,0,0,'NA'],
+['PAO (1), Srinagar, HD, J&K','Srinagar',0,0,0,0,'NA'],
+['PAO (2), Srinagar, HD, J&K','Srinagar',17,0,0,0,'NA']
+].map(function(r){return {name:r[0],station:r[1],nonGem:r[2],gem:r[3],nonGemOld:r[4],gemOld:r[5],reason:r[6],date:BILL_REPORT_DATE};});
+var storedBills=reportStorage.get('pcca.billReports') || [];
+function allBillRows(){
+  var rows=billRows.slice();
+  storedBills.forEach(function(updated){ var i=rows.findIndex(function(r){return r.name===updated.name;}); if(i>=0) rows[i]=updated; else rows.push(updated); });
+  return rows;
+}
+function billValue(v){ return v===null || v===undefined || v==='' ? '—' : v; }
+function paintBillTotals(){
+  var rows=allBillRows();
+  function sum(k){return rows.reduce(function(a,r){return a+(Number(r[k])||0);},0);}
+  document.getElementById('billNonGemTotal').textContent=sum('nonGem').toLocaleString('en-IN');
+  document.getElementById('billGemTotal').textContent=sum('gem').toLocaleString('en-IN');
+  document.getElementById('billNonGemOld').textContent=sum('nonGemOld').toLocaleString('en-IN');
+  document.getElementById('billGemOld').textContent=sum('gemOld').toLocaleString('en-IN');
+}
+function renderBillTable(){
+  var q=(document.getElementById('billSearch').value||'').toLowerCase().trim();
+  var station=document.getElementById('billStationFilter').value;
+  var reason=document.getElementById('billReasonFilter').value;
+  var rows=allBillRows().filter(function(r){
+    if(q && r.name.toLowerCase().indexOf(q)<0 && r.station.toLowerCase().indexOf(q)<0) return false;
+    if(station && r.station!==station) return false;
+    var hasReason=r.reason && r.reason.trim() && r.reason.trim().toUpperCase()!=='NA';
+    if(reason==='has-reason' && !hasReason) return false;
+    if(reason==='no-reason' && hasReason) return false;
+    return true;
+  });
+  document.getElementById('billTable').innerHTML='<table class="report-table"><thead><tr><th>S.No.</th><th>Name of PAO</th><th>Non-GeM pending</th><th>GeM pending</th><th>Non-GeM &gt; 2 days</th><th>GeM &gt; 1 day</th><th>Reasons / remarks</th></tr></thead><tbody>'+rows.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><strong>'+esc(r.name)+'</strong><div style="font-size:.72rem;color:var(--slate-light)">'+esc(r.station)+'</div></td><td class="num">'+billValue(r.nonGem)+'</td><td class="num">'+billValue(r.gem)+'</td><td class="num">'+billValue(r.nonGemOld)+'</td><td class="num">'+billValue(r.gemOld)+'</td><td class="reason">'+esc(r.reason || '—')+'</td></tr>';}).join('')+'</tbody></table>';
+}
+function saveBillReport(){
+  var name=document.getElementById('billOffice').value;
+  var office=PCC_OFFICES.find(function(o){return o.name===name;});
+  if(!office){ toast('Select an office'); return; }
+  var vals=['billNonGemInput','billGemInput','billNonGemOldInput','billGemOldInput'].map(function(id){return Number(document.getElementById(id).value);});
+  if(vals.some(function(v){return !Number.isInteger(v)||v<0;})){toast('Enter valid non-negative whole numbers');return;}
+  var row={name:name,station:office.location,nonGem:vals[0],gem:vals[1],nonGemOld:vals[2],gemOld:vals[3],reason:document.getElementById('billReasonInput').value.trim()||'NA',date:document.getElementById('billDateInput').value||BILL_REPORT_DATE};
+  storedBills=storedBills.filter(function(r){return r.name!==name;}); storedBills.push(row); reportStorage.set('pcca.billReports',storedBills);
+  ['billNonGemInput','billGemInput','billNonGemOldInput','billGemOldInput','billReasonInput'].forEach(function(id){document.getElementById(id).value='';});
+  toast('Bill pendency report saved for '+name); paintBillTotals(); renderBillTable();
+}
+function exportBillCSV(){
+  var csv='S.No.,Name of PAO,Station,Total Pendency of Non-GeM Bills,Total Pendency of GeM Bills,Non-GeM Bills Pending >2 Working Days,GeM Bills Pending >1 Working Day,Reasons\n';
+  allBillRows().forEach(function(r,i){csv+=(i+1)+',"'+r.name.replace(/"/g,'""')+'","'+r.station+'",'+billValue(r.nonGem)+','+billValue(r.gem)+','+billValue(r.nonGemOld)+','+billValue(r.gemOld)+',"'+(r.reason||'').replace(/"/g,'""')+'"\n';});
+  downloadText(csv,'pcca-bill-pendency.csv','text/csv');
+}
+function downloadBillTemplate(){
+  var csv='Name of PAO,Station,Non-GeM pending,GeM pending,Non-GeM > 2 working days,GeM > 1 working day,Reasons,Report date\n';
+  PCC_OFFICES.forEach(function(o){csv+='"'+o.name.replace(/"/g,'""')+'","'+o.location+'",,,,,,,\n';});
+  downloadText(csv,'pcca-bill-pendency-template.csv','text/csv');
+}
+function downloadText(text,name,type){var blob=new Blob([text],{type:type});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1000);}
+function queueReportFile(input,labelId){var label=document.getElementById(labelId);label.textContent=input.files && input.files[0] ? input.files[0].name : 'No file selected';}
+
+/* ---------- misc ---------- */
+function exportCSV(){
+  var rows = typeof filtered === 'function' && document.getElementById('q') ? filtered() : PCC_OFFICES;
+  var csv = 'Office,Organisation,Station,Sr AO,AAO,Sr Acctt/Acctt,Total,Status\n';
+  rows.forEach(function(o){
+    csv += '"'+o.name+'","'+o.force+'","'+o.location+'",'+o.srAO+','+o.aao+','+o.acctt+','+total(o)+',"'+o.status+'"\n';
+  });
+  var blob = new Blob([csv], {type:'text/csv'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'pcca-offices.csv';
+  a.click();
+  toast('CSV downloaded — ' + rows.length + ' offices');
+}
+
+function newCap(){
+  var s = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', out = '';
+  for(var i=0;i<6;i++) out += s[Math.floor(Math.random()*s.length)];
+  document.getElementById('cap').textContent = out;
+}
+
+function doLogin(){
+  if(!document.getElementById('u').value.trim()){ toast('Enter your office ID or email'); return; }
+  go('dashboard');
+  toast('Signed in as Super Administrator');
+}
+
+function setLang(code, btn){
+  btn.parentElement.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  toast(code==='hi' ? 'हिन्दी अनुवाद इस डेमो में शामिल नहीं है' : 'English');
+}
+
+var upCount = 0;
+function fakeUpload(){
+  upCount++;
+  var names = ['circular-draft.pdf','expenditure-aug-2026.xlsx','office-order.docx','audit-note.pdf'];
+  var name = names[(upCount-1) % names.length];
+  var wrap = document.getElementById('uploads');
+  var row = document.createElement('div');
+  row.className = 'upload-item';
+  row.innerHTML = '<span class="up-name">'+name+'</span><span class="up-bar"><i></i></span>'+
+                  '<span style="font-size:.78rem;color:var(--slate-light);min-width:38px;text-align:right">0%</span>';
+  wrap.appendChild(row);
+  var bar = row.querySelector('i'), pct = row.lastElementChild, n = 0;
+  var t = setInterval(function(){
+    n += Math.random()*22;
+    if(n >= 100){ n = 100; clearInterval(t); pct.textContent = 'Done'; toast(name + ' uploaded'); }
+    else pct.textContent = Math.round(n) + '%';
+    bar.style.width = n + '%';
+  }, 220);
+}
+
+var toastTimer;
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2600);
+}
+
+/* drag/drop */
+(function(){
+  var dz = document.getElementById('dz');
+  if(!dz) return;
+  ['dragenter','dragover'].forEach(function(e){
+    dz.addEventListener(e, function(ev){ ev.preventDefault(); dz.classList.add('drag'); });
+  });
+  ['dragleave','drop'].forEach(function(e){
+    dz.addEventListener(e, function(ev){ ev.preventDefault(); dz.classList.remove('drag'); });
+  });
+  dz.addEventListener('drop', function(){ fakeUpload(); });
+})();
+
+/* ---------- boot ---------- */
+paintTotals();
+fillFilters();
+render();
+drawForceChart();
+drawOfficeStrengthTable();
+initDashboardNav();
+drawAdminList();
+newCap();
+PCC_OFFICES.forEach(function(o){
+  var auditOffice=document.getElementById('auditOffice'); if(auditOffice) auditOffice.insertAdjacentHTML('beforeend','<option>'+esc(o.name)+'</option>');
+  var billOffice=document.getElementById('billOffice'); if(billOffice) billOffice.insertAdjacentHTML('beforeend','<option>'+esc(o.name)+'</option>');
+});
+var stations=[]; PCC_OFFICES.forEach(function(o){if(stations.indexOf(o.location)<0) stations.push(o.location);}); stations.sort();
+stations.forEach(function(st){var sel=document.getElementById('billStationFilter');if(sel)sel.insertAdjacentHTML('beforeend','<option>'+esc(st)+'</option>');});
+paintAuditTotals(); renderAuditTable(); paintBillTotals(); renderBillTable();
+
+/* ------------------------------------------------------------
+   Live API bootstrap.
+
+   The embedded PCC_OFFICES array above is the fallback office dataset.
+   When the backend is running, the real records replace it and the
+   totals come from the server's computed aggregate.
+
+   If the API is unreachable the page keeps working on the embedded
+   data, so the frontend remains usable when the API is unavailable.
+   ------------------------------------------------------------ */
+(function () {
+  if (!window.PCCA_API) return;
+
+  window.PCCA_API.offices.list({})
+    .then(function (res) {
+      if (!res.offices || !res.offices.length) return;
+      PCC_OFFICES.length = 0;
+      res.offices.forEach(function (o) {
+        PCC_OFFICES.push({
+          id: o.id, name: o.name, force: o.parentOrg, location: o.station,
+          srAO: o.srAO, aao: o.aao, acctt: o.acctt, status: o.status
+        });
+      });
+      return window.PCCA_API.offices.totals();
+    })
+    .then(function (t) {
+      if (!t) return;
+      TOTALS.offices = t.offices; TOTALS.srAO = t.srAO;
+      TOTALS.aao = t.aao; TOTALS.acctt = t.acctt;
+      paintTotals(); render(); drawForceChart(); drawOfficeStrengthTable();
+      toast('Connected to the API \u2014 showing live records');
+    })
+    .catch(function () {
+      /* API unavailable; the embedded office records remain available. */
+    });
+})();
+</script>
+</body>
+</html>

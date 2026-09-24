@@ -1,0 +1,44 @@
+# ============================================================
+# PCCA Portal — system and package requirements
+# pcca.mha.gov.in
+#
+# This project is Node.js, not Python, so there is no pip install
+# step. This file lists everything the server must have, in one
+# place, for the procurement and provisioning request.
+# ============================================================
+
+# ---------- System (install on the host) ----------
+Node.js                  >= 20.11 LTS
+npm                      >= 10.0
+PostgreSQL               >= 15
+Nginx                    >= 1.24        # TLS termination + static files
+ClamAV daemon            >= 1.0         # upload virus scanning
+Docker                   >= 24.0        # optional, for the compose setup
+Docker Compose plugin    >= 2.20        # optional
+
+# ---------- Backend npm packages (backend/package.json) ----------
+express                  ^4.21.2        # HTTP framework
+pg                       ^8.13.1        # PostgreSQL client
+argon2                   ^0.41.1        # password hashing (argon2id)
+jsonwebtoken             ^9.0.2         # access/refresh tokens
+cookie-parser            ^1.4.7         # httpOnly cookie reading
+helmet                   ^8.0.0         # security headers, CSP
+cors                     ^2.8.5         # single-origin CORS
+express-rate-limit       ^7.5.0         # login and write throttling
+multer                   ^1.4.5-lts.1   # multipart upload handling
+zod                      ^3.24.1        # request validation
+dotenv                   ^16.4.7        # environment loading
+pino                     ^9.5.0         # structured logging
+pino-http                ^10.3.0        # request logging
+
+# ---------- Frontend ----------
+# The delivered frontend is a single HTML file with no build step or
+# frontend package dependencies. Typography currently uses the linked web fonts in index.html.
+# The React rebuild planned in docs/phases.md will add:
+#   vite, react, react-dom, react-router-dom, @tanstack/react-query,
+#   react-hook-form, zod, typescript
+
+# ---------- Not used, deliberately ----------
+# No CDN-loaded assets      — deployment may be air-gapped
+# No analytics or telemetry — citizen browsing is not ours to transmit
+# No component library      — see docs/rules.md

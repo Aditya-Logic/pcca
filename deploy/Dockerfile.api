@@ -1,0 +1,32 @@
+# ---- build ----
+FROM node:20-bookworm-slim AS deps
+WORKDIR /app
+# argon2 needs a toolchain to build its native binding
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      python3 make g++ ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY backend/package.json ./
+RUN npm install --omit=dev --no-audit --no-fund
+
+# ---- runtime ----
+FROM node:20-bookworm-slim
+WORKDIR /app
+ENV NODE_ENV=production
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd --system --uid 10001 --create-home pcca
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY backend/ ./
+
+RUN mkdir -p /app/uploads && chown -R pcca:pcca /app
+
+# Never run as root.
+USER pcca
+
+EXPOSE 4000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD curl -fsS http://127.0.0.1:4000/api/health || exit 1
+
+CMD ["node", "src/server.js"]
